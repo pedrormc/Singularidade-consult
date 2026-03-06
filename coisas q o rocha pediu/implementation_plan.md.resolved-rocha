@@ -1,0 +1,131 @@
+# Marketplace Singular — Event System Implementation
+
+Implement the full 14-event system for the Singular Marketplace, covering: event tracking, marketplace UI, lead capture, backoffice CRM pipeline, triage routing, meeting scheduling, proposals, and deal closing.
+
+## Proposed Changes
+
+### Services Layer (New)
+
+#### [NEW] [eventTracker.js](file:///c:/Users/teste/Desktop/Singularidade/src/services/eventTracker.js)
+Central event tracking service. Stores events in `localStorage` table `sg_events`. Every event records `eventName`, `timestamp`, `sessionId`, `payload`. Functions: `trackEvent(name, payload)`, `getEvents()`, `getEventsByType(name)`.
+
+#### [NEW] [sessionManager.js](file:///c:/Users/teste/Desktop/Singularidade/src/services/sessionManager.js)
+Session management. Generates `sessionId` (UUID v4) on first access, stores in `sessionStorage`. Captures UTM params and referrer from URL. Functions: `getSession()`, `getSessionId()`.
+
+#### [NEW] [leadService.js](file:///c:/Users/teste/Desktop/Singularidade/src/services/leadService.js)
+Lead CRUD with `localStorage` persistence. Manages the full funnel lifecycle:
+- `createLead(data)` → generates `leadId`, sets `status='novo'`, `tentativaContato=0`, `origem='marketplace'`
+- `updateLeadStatus(leadId, status)`
+- `incrementContactAttempt(leadId)`
+- `addNotes(leadId, notes)`
+- `getLeads()`, `getLeadById(id)`
+- `routeLead(leadId, destination, provider)`
+- `scheduleMeeting(leadId, data)`
+- `completeMeeting(leadId, summary)`
+- `createProposal(leadId, data)`
+- `closeDeal(leadId, data)`
+
+Funnel statuses: `novo` → `contato_em_andamento` → `triagem` → `encaminhado_fornecedor` / `encaminhado_consultorio` / `encaminhado_nutricao` → `agendado` → `reuniao_realizada` → `proposta_enviada` → `fechado` / `perdido`
+
+#### [NEW] [notificationService.js](file:///c:/Users/teste/Desktop/Singularidade/src/services/notificationService.js)
+Simulated WhatsApp + Email notification system. Logs messages to console and stores in `localStorage` for backoffice visibility. Templates for lead confirmation, provider routing, etc.
+
+---
+
+### Marketplace Pages (New)
+
+#### [NEW] [Marketplace.jsx](file:///c:/Users/teste/Desktop/Singularidade/src/pages/Marketplace.jsx)
+Main marketplace page at `/marketplace`. Features:
+- Hero section with search bar
+- Pain filters (pills)
+- Provider cards grid (mock data with ~6 providers)
+- Fires `marketplace_viewed` on mount, `marketplace_search` on search/filter
+- Each card links to `/marketplace/fornecedor/{slug}`
+- "Solicitar análise da Singular" CTA button on page → opens lead form modal
+
+#### [NEW] [Marketplace.css](file:///c:/Users/teste/Desktop/Singularidade/src/pages/Marketplace.css)
+Styles for marketplace page: search bar, filter pills, provider cards grid, lead form modal, success screen.
+
+#### [NEW] [ProviderProfile.jsx](file:///c:/Users/teste/Desktop/Singularidade/src/pages/ProviderProfile.jsx)
+Provider detail page at `/marketplace/fornecedor/:slug`. Features:
+- Provider header (name, specialty, description)
+- Services list, pain points addressed
+- CTA: "Solicitar análise da Singular" button
+- Fires `provider_profile_viewed` on mount
+- Fires `analysis_requested_click` on CTA click → opens lead form
+
+#### [NEW] [LeadFormModal.jsx](file:///c:/Users/teste/Desktop/Singularidade/src/components/LeadFormModal.jsx)
+Reusable modal component for lead capture. Pre-fills: `providerId`, `dor`, `termo buscado`. Fields: name, email, phone, company, pain, problem description, urgency, budget. On submit:
+1. Creates lead via `leadService.createLead()`
+2. Fires `lead_form_submitted` event
+3. Triggers `notificationService` (WhatsApp + Email simulation)
+4. Shows success screen
+
+#### [NEW] [SuccessScreen.jsx](file:///c:/Users/teste/Desktop/Singularidade/src/components/SuccessScreen.jsx)
+Post-submission confirmation with animated checkmark. Title: "Solicitação enviada com sucesso". Body text per specification.
+
+---
+
+### Backoffice CRM (New)
+
+#### [NEW] [Backoffice.jsx](file:///c:/Users/teste/Desktop/Singularidade/src/pages/Backoffice.jsx)
+CRM dashboard at `/backoffice`. Features:
+- **Pipeline Board**: Kanban columns by funnel status
+- **Lead Cards**: Click to expand detail panel
+- **Actions per lead**:
+  - "Registrar tentativa de contato" → fires `contact_attempted`
+  - "Registrar contato realizado" → fires `lead_contacted` + notes field
+  - "Triagem" dropdown → fires `triage_completed` with routing option
+  - "Agendar reunião" → fires `meeting_scheduled`
+  - "Registrar reunião realizada" → fires `meeting_completed`
+  - "Criar proposta" → fires `proposal_created`
+  - "Fechar negócio" → fires `deal_closed`
+- **Analytics sidebar**: Event log (recent events from `eventTracker`)
+- **Notification log**: Shows simulated WhatsApp/Email messages sent
+
+#### [NEW] [Backoffice.css](file:///c:/Users/teste/Desktop/Singularidade/src/pages/Backoffice.css)
+Premium dark Kanban board styling following Singular brand.
+
+---
+
+### Routing & Navigation
+
+#### [MODIFY] [App.jsx](file:///c:/Users/teste/Desktop/Singularidade/src/App.jsx)
+Add routes:
+- `/marketplace` → `<Marketplace />`
+- `/marketplace/fornecedor/:slug` → `<ProviderProfile />`
+- `/backoffice` → `<Backoffice />`
+
+#### [MODIFY] [Navbar.jsx](file:///c:/Users/teste/Desktop/Singularidade/src/components/Navbar.jsx)
+Add "Marketplace" link in navigation.
+
+---
+
+### Mock Data
+
+#### [NEW] [mockData.js](file:///c:/Users/teste/Desktop/Singularidade/src/data/mockData.js)
+Provider and pain-point sample data for the marketplace:
+- ~6 providers with `id`, `slug`, `name`, `specialty`, `description`, `pains[]`, `services[]`
+- Pain categories: Gestão, Financeiro, Marketing, Vendas, Operações, Jurídico
+
+---
+
+## Verification Plan
+
+### Browser Testing
+1. Navigate to `/marketplace` → verify page loads, provider cards visible, search works
+2. Click a provider card → verify `/marketplace/fornecedor/{slug}` loads
+3. Click "Solicitar análise da Singular" → verify form modal opens
+4. Fill and submit form → verify success screen and lead creation
+5. Navigate to `/backoffice` → verify lead appears in pipeline
+6. Test backoffice actions: contact attempt, triage, meeting, proposal, deal close
+7. Open browser console → verify events are being logged (`sg_events` in localStorage)
+
+### Manual Verification
+The user can verify the complete flow by:
+1. Opening the app and navigating to "Marketplace" in the navbar
+2. Searching/filtering providers and clicking on one
+3. Submitting the lead form
+4. Going to `/backoffice` to see the lead in the pipeline
+5. Walking through each CRM action button
+6. Checking `localStorage` in DevTools for `sg_events` and `sg_leads` data

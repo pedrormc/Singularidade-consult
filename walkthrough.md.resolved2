@@ -1,0 +1,34 @@
+# Walkthrough — Stellar Shader Background
+
+## Changes Made
+
+### New Files
+- [AnimatedShaderBackground.jsx](file:///c:/Users/teste/Desktop/Singularidade/src/components/AnimatedShaderBackground.jsx) — Three.js WebGL shader component with orange/amber Singular palette
+
+### Modified Files
+- [Home.jsx](file:///c:/Users/teste/Desktop/Singularidade/Home.jsx) — Replaced SVG diagonal pattern with `<AnimatedShaderBackground />`
+- [index.css](file:///c:/Users/teste/Desktop/Singularidade/src/index.css) — Swapped `.hero-bg-pattern` for `.hero-shader-bg`, hero background set to `#000000`
+
+### Dependencies
+- Added `three` (Three.js) for WebGL shader rendering
+
+## Shader Customization
+
+The original component used a **blue/green aurora** palette. It was recolored to the **Singular Cosmic-Tech** identity:
+
+| Channel | Original (Aurora) | Singular (Adapted) |
+|---------|-------------------|---------------------|
+| Red | `0.1 + 0.3 * sin(...)` | `0.9 + 0.1 * sin(...)` |
+| Green | `0.3 + 0.5 * cos(...)` | `0.3 + 0.2 * cos(...)` |
+| Blue | `0.7 + 0.3 * sin(...)` | `0.02 + 0.05 * sin(...)` |
+
+This produces warm amber/copper/orange light trails on a pure black void.
+
+## Browser Verification ✅
+
+- **Shader renders** — animated orange/amber light trails flowing across the hero section
+- **Content readable** — hero title, subtitle, CTAs, and stats all clearly visible on top
+- **No console errors** — no WebGL issues, no React errors
+- **Responsive** — shader resizes with the window
+
+![Shader background recording](C:/Users/teste/.gemini/antigravity/brain/0ebac3f1-1aca-45c7-bb3c-501da7c5a714/shader_verification_1772660608017.webp)

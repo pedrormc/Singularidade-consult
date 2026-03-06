@@ -1,0 +1,65 @@
+# Marketplace Singular — Event System Walkthrough
+
+## O que foi implementado
+
+Sistema completo de **14 eventos** seguindo a documentação à risca, com marketplace de fornecedores, captura de leads, CRM backoffice e tracking analytics.
+
+## Arquitetura de Arquivos
+
+### Services Layer (4 arquivos)
+| Arquivo | Função |
+|---------|--------|
+| [eventTracker.js](file:///c:/Users/teste/Desktop/Singularidade/src/services/eventTracker.js) | Tracking central — registra todos os 14 eventos em `localStorage` |
+| [sessionManager.js](file:///c:/Users/teste/Desktop/Singularidade/src/services/sessionManager.js) | Sessão anônima com UUID, UTM params, referrer |
+| [leadService.js](file:///c:/Users/teste/Desktop/Singularidade/src/services/leadService.js) | CRUD de leads + gestão completa do funil |
+| [notificationService.js](file:///c:/Users/teste/Desktop/Singularidade/src/services/notificationService.js) | WhatsApp + Email simulados, visíveis no backoffice |
+
+### Pages & Components (7 arquivos)
+| Arquivo | Rota | Função |
+|---------|------|--------|
+| [Marketplace.jsx](file:///c:/Users/teste/Desktop/Singularidade/src/pages/Marketplace.jsx) | `/marketplace` | Listagem de fornecedores, busca, filtros por dor |
+| [ProviderProfile.jsx](file:///c:/Users/teste/Desktop/Singularidade/src/pages/ProviderProfile.jsx) | `/marketplace/fornecedor/:slug` | Perfil detalhado do fornecedor |
+| [LeadFormModal.jsx](file:///c:/Users/teste/Desktop/Singularidade/src/components/LeadFormModal.jsx) | Modal | Formulário de pré-qualificação com campos por spec |
+| [SuccessScreen.jsx](file:///c:/Users/teste/Desktop/Singularidade/src/components/SuccessScreen.jsx) | Modal | Tela de sucesso pós-envio |
+| [Backoffice.jsx](file:///c:/Users/teste/Desktop/Singularidade/src/pages/Backoffice.jsx) | `/backoffice` | CRM Kanban + log de eventos + notificações |
+
+---
+
+## Mapa de Eventos Implementados
+
+| # | Evento | Trigger | Onde |
+|---|--------|---------|------|
+| 1 | `marketplace_viewed` | Acessa `/marketplace` | Marketplace.jsx |
+| 2 | `marketplace_search` | Digita busca ou clica filtro | Marketplace.jsx |
+| 3 | `provider_profile_viewed` | Clica card fornecedor | ProviderProfile.jsx |
+| 4 | `analysis_requested_click` | Clica "Solicitar análise" | Marketplace/ProviderProfile |
+| 5 | `lead_form_submitted` | Envia formulário | LeadFormModal.jsx |
+| 6 | `lead_created` | Criação do lead | leadService.js |
+| 7 | `contact_attempted` | Botão no backoffice | Backoffice.jsx |
+| 8 | `lead_contacted` | Registra contato | Backoffice.jsx |
+| 9 | `triage_completed` | Seleciona resultado triagem | Backoffice.jsx |
+| 10 | `lead_routed_to_provider` | Encaminha fornecedor | Backoffice.jsx |
+| 11 | `meeting_scheduled` | Agenda reunião | Backoffice.jsx |
+| 12 | `meeting_completed` | Registra reunião realizada | Backoffice.jsx |
+| 13 | `proposal_created` | Cria proposta | Backoffice.jsx |
+| 14 | `deal_closed` | Fecha negócio | Backoffice.jsx |
+
+## Como Testar
+
+1. Abra `http://localhost:5173/marketplace` → hero + busca + filtros + cards
+2. Clique em filtros de dor (Gestão, Marketing, etc.) → lista atualiza
+3. Clique em um fornecedor → perfil detalhado abre
+4. Clique "Solicitar análise da Singular" → formulário modal abre
+5. Preencha e envie → tela de sucesso com animação
+6. Vá para `/backoffice` → lead aparece no pipeline (coluna "Novo")
+7. Clique no lead → expande com detalhes e ações
+8. Execute ações: contato → triagem → agendar → reunião → proposta → fechar
+9. Aba "Eventos" → log completo de todos eventos disparados
+10. Aba "Notificações" → WhatsApp e Emails simulados
+
+## Validação
+
+- ✅ Build com sucesso (62 módulos, 0 erros)
+- ✅ Dev server retorna 200 para `/marketplace`
+- ✅ Todos os 14 eventos mapeados na documentação foram implementados
+- ✅ Funil completo: Visitante → Lead → Contato → Triagem → Encaminhado → Agendado → Reunião → Proposta → Fechado/Perdido

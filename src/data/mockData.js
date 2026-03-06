@@ -1,0 +1,148 @@
+// =============================================
+// Mock Data — Singular Marketplace
+// Sample providers and pain categories
+// =============================================
+
+export const PAIN_CATEGORIES = [
+    { id: 'gestao', label: 'Gestão', icon: '📊' },
+    { id: 'financeiro', label: 'Financeiro', icon: '💰' },
+    { id: 'marketing', label: 'Marketing', icon: '📢' },
+    { id: 'vendas', label: 'Vendas', icon: '🎯' },
+    { id: 'operacoes', label: 'Operações', icon: '⚙️' },
+    { id: 'juridico', label: 'Jurídico', icon: '⚖️' },
+    { id: 'tecnologia', label: 'Tecnologia', icon: '💻' },
+    { id: 'pessoas', label: 'Pessoas', icon: '👥' },
+]
+
+export const PROVIDERS = [
+    {
+        id: 'prov_001',
+        slug: 'stratego-consultoria',
+        name: 'Stratego Consultoria',
+        specialty: 'Gestão Estratégica & Processos',
+        shortDesc: 'Especialistas em diagnóstico organizacional e redesenho de processos para empresas em crescimento.',
+        fullDesc: 'A Stratego é referência em transformação organizacional. Com mais de 15 anos de experiência, atuamos no diagnóstico profundo de gargalos operacionais e na criação de processos escaláveis. Nossa metodologia proprietária combina análise de dados com design thinking para entregar resultados mensuráveis.',
+        pains: ['gestao', 'operacoes'],
+        services: [
+            'Diagnóstico organizacional',
+            'Redesenho de processos',
+            'Planejamento estratégico',
+            'OKRs e métricas',
+            'Gestão de mudança',
+        ],
+        rating: 4.9,
+        projects: 127,
+        avatar: '🏢',
+    },
+    {
+        id: 'prov_002',
+        slug: 'fincore-partners',
+        name: 'FinCore Partners',
+        specialty: 'Gestão Financeira & Valuation',
+        shortDesc: 'Assessoria financeira completa: da reestruturação ao planejamento tributário.',
+        fullDesc: 'A FinCore Partners oferece soluções financeiras end-to-end para empresas de todos os portes. Nosso time de CFOs fractional e analistas financeiros traz clareza para a saúde financeira do seu negócio, desde cash flow management até preparação para rodadas de investimento.',
+        pains: ['financeiro', 'gestao'],
+        services: [
+            'CFO as a Service',
+            'Planejamento tributário',
+            'Valuation & M&A',
+            'Reestruturação financeira',
+            'Captação de investimentos',
+        ],
+        rating: 4.8,
+        projects: 89,
+        avatar: '💼',
+    },
+    {
+        id: 'prov_003',
+        slug: 'pulse-digital',
+        name: 'Pulse Digital',
+        specialty: 'Marketing Digital & Growth',
+        shortDesc: 'Growth hacking e marketing de performance para escalar sua aquisição de clientes.',
+        fullDesc: 'A Pulse Digital é uma agência de growth marketing orientada a dados. Combinamos criatividade com análise técnica para criar estratégias de aquisição, retenção e expansão. Nosso foco é ROI mensurável e escalabilidade sustentável.',
+        pains: ['marketing', 'vendas'],
+        services: [
+            'Growth hacking',
+            'Marketing de performance',
+            'SEO & Content Marketing',
+            'Social media strategy',
+            'CRO & A/B Testing',
+        ],
+        rating: 4.7,
+        projects: 203,
+        avatar: '🚀',
+    },
+    {
+        id: 'prov_004',
+        slug: 'vendx-aceleradora',
+        name: 'VendX Aceleradora',
+        specialty: 'Vendas & CRM',
+        shortDesc: 'Estruturação completa da máquina de vendas: do playbook ao CRM.',
+        fullDesc: 'A VendX é especialista em construir e otimizar máquinas de vendas B2B. Desde a definição do ICP até a implementação de CRM e treinamento de SDRs, entregamos processos comerciais previsíveis e escaláveis.',
+        pains: ['vendas', 'marketing'],
+        services: [
+            'Sales playbook',
+            'Implementação de CRM',
+            'Treinamento de vendas',
+            'Inside sales setup',
+            'Pipeline management',
+        ],
+        rating: 4.9,
+        projects: 156,
+        avatar: '📈',
+    },
+    {
+        id: 'prov_005',
+        slug: 'nexus-tech',
+        name: 'Nexus Tech Solutions',
+        specialty: 'Tecnologia & Automação',
+        shortDesc: 'Automação de processos e desenvolvimento de soluções tecnológicas sob medida.',
+        fullDesc: 'A Nexus Tech transforma operações manuais em fluxos automatizados e inteligentes. Com expertise em RPA, integrações API e desenvolvimento de software, ajudamos empresas a economizar tempo e reduzir erros operacionais.',
+        pains: ['tecnologia', 'operacoes'],
+        services: [
+            'Automação de processos (RPA)',
+            'Integrações & APIs',
+            'Desenvolvimento custom',
+            'Cloud migration',
+            'Data analytics',
+        ],
+        rating: 4.6,
+        projects: 94,
+        avatar: '⚡',
+    },
+    {
+        id: 'prov_006',
+        slug: 'iure-legal',
+        name: 'Iure Legal Advisory',
+        specialty: 'Jurídico Empresarial',
+        shortDesc: 'Assessoria jurídica preventiva para startups e empresas em expansão.',
+        fullDesc: 'O Iure Legal Advisory oferece suporte jurídico estratégico com foco em prevenção e compliance. Atuamos em contratos, propriedade intelectual, LGPD, direito societário e questões trabalhistas, sempre com uma abordagem prática e orientada ao negócio.',
+        pains: ['juridico', 'gestao'],
+        services: [
+            'Contratos empresariais',
+            'Compliance & LGPD',
+            'Propriedade intelectual',
+            'Direito societário',
+            'Consultoria trabalhista',
+        ],
+        rating: 4.8,
+        projects: 78,
+        avatar: '⚖️',
+    },
+]
+
+export const URGENCY_OPTIONS = [
+    { value: 'baixa', label: 'Baixa — Próximos meses' },
+    { value: 'media', label: 'Média — Próximas semanas' },
+    { value: 'alta', label: 'Alta — Próximos dias' },
+    { value: 'critica', label: 'Crítica — Imediato' },
+]
+
+export const BUDGET_OPTIONS = [
+    { value: 'ate_5k', label: 'Até R$ 5.000' },
+    { value: '5k_15k', label: 'R$ 5.000 - R$ 15.000' },
+    { value: '15k_50k', label: 'R$ 15.000 - R$ 50.000' },
+    { value: '50k_100k', label: 'R$ 50.000 - R$ 100.000' },
+    { value: 'acima_100k', label: 'Acima de R$ 100.000' },
+    { value: 'indefinido', label: 'A definir' },
+]

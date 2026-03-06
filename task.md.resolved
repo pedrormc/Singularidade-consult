@@ -1,0 +1,20 @@
+# Migração do Site Singularidade para React
+
+## Planejamento
+- [x] Analisar projeto atual (4 HTMLs, 1 CSS, 1 JS)
+- [x] Criar plano de implementação da migração
+- [x] Revisar plano com o usuário
+
+## Execução
+- [x] Inicializar projeto React com Vite
+- [x] Migrar CSS global ([style.css](file:///c:/Users/teste/Desktop/Singularidade/css/style.css))
+- [x] Criar componentes compartilhados (Navbar, Footer, Toast, LogoSVG)
+- [x] Criar páginas (Home, Ecossistema, VentureBuilder, Areas)
+- [x] Migrar lógica JS (scroll reveal, counters, forms, filtros, etc.)
+- [x] Configurar React Router para navegação
+- [x] Envolver App com ToastProvider
+
+## Verificação
+- [x] Instalar dependências e rodar `npm run dev`
+- [x] Verificar build sem erros (238kB, gzip: 71kB)
+- [x] Testar no browser — todas as 4 páginas funcionando
