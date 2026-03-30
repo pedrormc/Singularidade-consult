@@ -62,22 +62,22 @@ export default function Home() {
                 <div className="hero-content">
                     <div className="hero-eyebrow" data-reveal>
                         <div className="hero-eyebrow-line"></div>
-                        <span className="hero-eyebrow-text">Centro de Apoio ao Empresário</span>
+                        <span className="hero-eyebrow-text">Consultório Empresarial</span>
                     </div>
 
                     <h1 data-reveal data-reveal-delay="1">
-                        O fim do<br />
-                        <em>improviso.</em>
+                        Clareza, estratégia<br />
+                        e <em>estrutura.</em>
                     </h1>
 
                     <p className="hero-sub" data-reveal data-reveal-delay="2">
-                        A Singular é o centro de apoio onde o caos vira previsibilidade. Deixamos de lado as teorias vazias para implementar processos, tecnologia e governança <strong>ombro a ombro com o empresário.</strong>
+                        O Consultório Empresarial é onde o caos vira previsibilidade. Uma consulta presencial aplicada ao seu negócio — <strong>diagnóstico real, ombro a ombro com o empresário.</strong>
                     </p>
 
                     <div className="hero-actions" data-reveal data-reveal-delay="3">
-                        <a href="#consultorio" className="btn btn-primary btn-lg">
+                        <a href="#triagem" className="btn btn-primary btn-lg">
                             <i className="fas fa-stethoscope"></i>
-                            Conhecer o Consultório
+                            Agendar Triagem Gratuita
                         </a>
                         <Link to="/ecossistema" className="btn btn-outline btn-lg">
                             <i className="fas fa-cubes"></i>
@@ -86,15 +86,15 @@ export default function Home() {
                     </div>
 
                     <div className="hero-stats" data-reveal data-reveal-delay="4">
-                        <HeroStat target={67} suffix="%" label="das empresas fecham por conflito entre sócios" />
-                        <HeroStat target={34} suffix="%" label="quebram nos primeiros 2 anos" />
+                        <HeroStat target={60} suffix="%" label="das empresas que quebram não planejaram suas finanças" />
+                        <HeroStat target={90} suffix=" dias" label="para transformar caos em clareza e controle" />
                         <div className="hero-stat-item">
-                            <span className="hero-stat-number">5km</span>
-                            <span className="hero-stat-label">de raio — atuação presencial e próxima</span>
+                            <span className="hero-stat-number">R$1.500</span>
+                            <span className="hero-stat-label">/mês — investimento acessível + taxa de êxito</span>
                         </div>
                         <div className="hero-stat-item">
-                            <span className="hero-stat-number">3x</span>
-                            <span className="hero-stat-label">mais chances com governança estruturada</span>
+                            <span className="hero-stat-number">5km</span>
+                            <span className="hero-stat-label">de raio — atuação presencial no hub ARCO</span>
                         </div>
                     </div>
                 </div>
@@ -105,34 +105,34 @@ export default function Home() {
                 <div className="container">
                     <div className="sg-tag sg-tag-outline" data-reveal>O Diagnóstico</div>
 
-                    <div className="problem-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
+                    <div className="problem-grid">
                         <div data-reveal data-reveal-delay="1">
                             <p className="problem-quote">
-                                "Empreender sozinho não é<br />
-                                <span>medalha de honra</span>,<br />
-                                é risco desnecessário."
+                                "Negócios não quebram<br />
+                                por falta de <span>venda</span>,<br />
+                                quebram por falta de <span>governança.</span>"
                             </p>
-                            <p style={{ fontSize: '1.05rem', color: 'rgba(28,28,28,0.7)', marginBottom: '1.5rem' }}>
-                                A Singular nasceu para ser o <strong>sócio estratégico que falta no seu negócio</strong>. Não consultoria de prateleira. Não teoria. Implementação real, ombro a ombro.
+                            <p className="problem-desc">
+                                Muitas empresas vendem bastante mas perdem dinheiro por gestão ruim. Crescer não é só vender mais — é <strong>saber quanto sobra</strong>. O Consultório Empresarial é o check-up integral do seu negócio: diagnóstico visual, raio-X financeiro e plano de ação em 90 dias.
                             </p>
-                            <a href="#consultorio" className="btn btn-primary">
+                            <Link to="/consultorio-empresarial" className="btn btn-primary">
                                 Ver Como Atuamos <i className="fas fa-arrow-right"></i>
-                            </a>
+                            </Link>
                         </div>
 
                         <div data-reveal data-reveal-delay="2">
                             <div className="stat-cards">
                                 <div className="stat-card">
-                                    <span className="stat-card-number">2/3</span>
-                                    <p className="stat-card-text">empresas fecham por desacordo entre sócios</p>
+                                    <span className="stat-card-number">60%</span>
+                                    <p className="stat-card-text">das empresas que quebram não planejaram suas finanças</p>
                                 </div>
                                 <div className="stat-card">
-                                    <span className="stat-card-number">34%</span>
-                                    <p className="stat-card-text">das empresas quebram nos primeiros 2 anos</p>
+                                    <span className="stat-card-number">90%</span>
+                                    <p className="stat-card-text">do tempo do dono é gasto apagando incêndios no operacional</p>
                                 </div>
                                 <div className="stat-card">
                                     <span className="stat-card-number">72%</span>
-                                    <p className="stat-card-text">não têm clareza sobre o custo real dos produtos</p>
+                                    <p className="stat-card-text">não têm clareza sobre o custo real dos seus produtos</p>
                                 </div>
                                 <div className="stat-card">
                                     <span className="stat-card-number">89%</span>
@@ -149,23 +149,23 @@ export default function Home() {
                 <div className="container">
                     <div className="section-header" data-reveal>
                         <div className="sg-tag">Consultório Empresarial</div>
-                        <h2>A <span>Tríade</span> das Consultas</h2>
-                        <p>Não existe diagnóstico sem presença. Por isso nossos gerentes atuam num raio de 5km, criando vínculos reais com o negócio do empresário.</p>
+                        <h2>O Check-up do Seu <span>Negócio</span></h2>
+                        <p>Assim como um médico primeiro faz exames antes de receitar remédio, nós primeiro diagnosticamos seu negócio. Sessões semanais presenciais no hub ARCO com metodologia própria e transformação real em 90 dias.</p>
                     </div>
 
                     <div className="triage-card" data-reveal data-reveal-delay="1">
-                        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1.5rem' }}>
+                        <div className="triage-card-inner">
                             <div>
-                                <div className="sg-tag" style={{ background: 'rgba(247,238,235,0.2)', color: 'var(--off-white)' }}>Ponto de Entrada</div>
-                                <h3 style={{ fontSize: '2rem', marginBottom: '0.75rem' }}>Triagem — Custo Zero</h3>
-                                <p style={{ maxWidth: '520px', fontSize: '1rem' }}>
-                                    Antes de qualquer compromisso, fazemos um diagnóstico inicial completo do seu negócio. Entendemos a estrutura, os gargalos e o potencial. Sem enrolação. Sem venda de ilusão.
+                                <div className="sg-tag" style={{ background: 'rgba(247,238,235,0.2)', color: 'var(--off-white)' }}>Sessão 0 — Anamnese</div>
+                                <h3 className="triage-card-title">Triagem Empresarial — Gratuita</h3>
+                                <p className="triage-card-desc">
+                                    Acolhemos o empresário, entendemos profundamente sua situação — números e percepção pessoal — e definimos se o consultório faz sentido agora. É o diagnóstico inicial 360° do seu negócio.
                                 </p>
                             </div>
-                            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '1rem', flexShrink: 0 }}>
-                                <div style={{ textAlign: 'right' }}>
-                                    <span style={{ fontFamily: 'var(--font-display)', fontSize: '3rem', fontWeight: 900, color: 'rgba(247,238,235,0.9)', display: 'block', lineHeight: 1 }}>GRÁTIS</span>
-                                    <span style={{ fontSize: '0.8rem', color: 'rgba(247,238,235,0.6)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>Sem custo inicial</span>
+                            <div className="triage-card-cta">
+                                <div className="triage-card-price">
+                                    <span className="triage-price-value">GRÁTIS</span>
+                                    <span className="triage-price-label">Sem custo inicial</span>
                                 </div>
                                 <a href="#triagem" className="btn btn-dark btn-lg">
                                     Agendar Triagem <i className="fas fa-arrow-right"></i>
@@ -177,45 +177,45 @@ export default function Home() {
                     <div className="consulta-cards" data-reveal data-reveal-delay="2">
                         <div className="consulta-card">
                             <span className="consulta-num">01</span>
-                            <h4>Boleto Invisível e Desperdício</h4>
-                            <p>Mapeamos todos os custos ocultos que corroem sua margem sem que você perceba. Cada centavo desperdiçado tem nome e endereço — e a gente encontra.</p>
+                            <h4>Raio-X Financeiro</h4>
+                            <p>Dissecamos custos e margens do seu negócio. Calculamos CMV, CSV e a margem real de cada produto — para você saber quanto de fato sobra de cada venda. Muitos descobrem que o produto "carro-chefe" quase não dá lucro.</p>
                             <div className="proximity-badge">
-                                <i className="fas fa-search-dollar"></i>
-                                Diagnóstico Financeiro Profundo
+                                <i className="fas fa-chart-pie"></i>
+                                Sessões 1-2
                             </div>
                         </div>
 
                         <div className="consulta-card">
                             <span className="consulta-num">02</span>
-                            <h4>Transparência Financeira e Preço Ideal</h4>
-                            <p>Você sabe exatamente quanto custa produzir o que vende? Estruturamos sua precificação com margem real, não com achismo. Preço justo para você e competitivo para o mercado.</p>
+                            <h4>Quick Wins de Caixa</h4>
+                            <p>Executamos campanhas de venda rápidas, reativação de clientes VIP e ajustes de precificação. Ações práticas que geram entrada de dinheiro imediato e corrigem fatores que estão sangrando seu caixa.</p>
                             <div className="proximity-badge">
-                                <i className="fas fa-chart-bar"></i>
-                                Precificação Estratégica
+                                <i className="fas fa-bolt"></i>
+                                Sessões 3-8
                             </div>
                         </div>
 
                         <div className="consulta-card">
                             <span className="consulta-num">03</span>
-                            <h4>Plano de Crescimento e Investimento</h4>
-                            <p>Com os dados em mãos, construímos um plano de ação com metas tangíveis, alocação de recursos e roteiro de crescimento. Não um PDF bonito — um compromisso executável.</p>
+                            <h4>Gestão Integrada</h4>
+                            <p>Montamos organograma, rituais de gestão e painel de indicadores. Definimos metas SMART e um plano de 90 dias para você crescer com método — não mais apagando incêndios.</p>
                             <div className="proximity-badge">
-                                <i className="fas fa-rocket"></i>
-                                Planejamento Executável
+                                <i className="fas fa-map-marked-alt"></i>
+                                Sessões 9-12
                             </div>
                         </div>
                     </div>
 
-                    <div style={{ marginTop: '3rem', padding: '2.5rem', background: 'var(--cinza-escuro)', borderRadius: 'var(--border-radius-lg)', border: '1px solid rgba(247,238,235,0.08)', display: 'flex', alignItems: 'center', gap: '2rem', flexWrap: 'wrap' }} data-reveal data-reveal-delay="3">
-                        <div style={{ width: '60px', height: '60px', background: 'var(--cobre)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                            <i className="fas fa-map-marker-alt" style={{ color: 'var(--off-white)', fontSize: '1.5rem' }}></i>
+                    <div className="proximity-bar" data-reveal data-reveal-delay="3">
+                        <div className="proximity-bar-icon">
+                            <i className="fas fa-building"></i>
                         </div>
-                        <div>
-                            <h4 style={{ color: 'var(--off-white)', marginBottom: '0.4rem', fontSize: '1.2rem' }}>Gerentes capacitados num raio de 5km</h4>
-                            <p style={{ fontSize: '0.95rem', margin: 0 }}>Presença física real. Não enviamos relatórios por e-mail. Estamos na sua empresa, entendendo o seu contexto, junto com você.</p>
+                        <div className="proximity-bar-text">
+                            <h4>Sessões presenciais no hub ARCO</h4>
+                            <p>Não enviamos relatórios por e-mail. Seu consultor está no ARCO — um hub regenerativo com natureza, design e infraestrutura de inovação. Acesso a espaço físico + rede de especialistas credenciados.</p>
                         </div>
-                        <div style={{ marginLeft: 'auto', flexShrink: 0 }}>
-                            <a href="#triagem" className="btn btn-primary">Encontrar Polo Próximo</a>
+                        <div className="proximity-bar-cta">
+                            <a href="#triagem" className="btn btn-primary">Agendar Visita ao ARCO</a>
                         </div>
                     </div>
                 </div>
@@ -226,11 +226,11 @@ export default function Home() {
                 <div className="container">
                     <div className="section-header" data-reveal>
                         <div className="sg-tag">Ecossistema Singular</div>
-                        <h2>Mais do que Falar,<br /><span>Entregamos Ferramentas</span></h2>
-                        <p>O Marketplace da Singular conecta seu negócio às soluções técnicas que transformam processos em vantagem competitiva real.</p>
+                        <h2>Rede de Especialistas<br /><span>Credenciados</span></h2>
+                        <p>Se surgir uma necessidade fora da alçada do consultor — contábil, jurídica, marketing, tecnologia — fazemos a ponte imediata com um parceiro de confiança. Você tem um time completo à disposição.</p>
                     </div>
 
-                    <h4 style={{ color: 'rgba(247,238,235,0.5)', fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '1.25rem' }} data-reveal>Módulos de Especialistas</h4>
+                    <h4 className="section-subtitle" data-reveal>Módulos de Especialistas</h4>
                     <div className="modules-grid" data-reveal data-reveal-delay="1">
                         {[
                             { icon: '👥', label: 'RH' },
@@ -246,8 +246,8 @@ export default function Home() {
                         ))}
                     </div>
 
-                    <div style={{ marginTop: '4rem' }} data-reveal>
-                        <h4 style={{ color: 'rgba(247,238,235,0.5)', fontSize: '0.75rem', letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: '1.25rem' }}>Soluções em Destaque</h4>
+                    <div className="solutions-block" data-reveal>
+                        <h4 className="section-subtitle">Soluções em Destaque</h4>
                         <div className="solutions-grid">
                             {[
                                 { icon: 'fa-robot', title: 'IA de Atendimento', desc: 'Automação inteligente com LLM treinado no contexto do seu negócio. Integração nativa com WhatsApp e CRM.', tag: 'Tecnologia' },
@@ -267,7 +267,7 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div style={{ textAlign: 'center', marginTop: '3rem' }} data-reveal>
+                    <div className="section-cta-center" data-reveal>
                         <Link to="/ecossistema" className="btn btn-outline btn-lg">
                             Ver Todo o Ecossistema <i className="fas fa-arrow-right"></i>
                         </Link>
@@ -278,39 +278,39 @@ export default function Home() {
             {/* VENTURE BUILDER PREVIEW */}
             <section className="vb-section sg-pattern-bg">
                 <div className="container">
-                    <div className="vb-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
+                    <div className="vb-grid">
                         <div data-reveal>
-                            <div className="sg-tag">Venture Builder</div>
-                            <h2 style={{ marginBottom: '1.5rem' }}>Incubamos Negócios.<br /><span style={{ color: 'var(--cobre)' }}>Aceleramos Crescimento.</span></h2>
-                            <p style={{ marginBottom: '1.5rem' }}>
-                                A Singular seleciona negócios com potencial e co-cria estrutura, governança e modelo de crescimento. Não somos investidores passivos — somos sócios operacionais.
+                            <div className="sg-tag">Próximo Nível</div>
+                            <h2 className="vb-title">Do Consultório ao<br /><span>Sócio de Aluguel.</span></h2>
+                            <p className="vb-desc">
+                                Após o Consultório, empresas prontas podem evoluir para a co-gestão. A Singular atua como sócio temporário por 90 dias — implementando melhorias financeiras, comerciais e operacionais a fundo. R$12.000 por 3 meses + êxito.
                             </p>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginBottom: '2rem' }}>
+                            <div className="vb-pillars-list">
                                 {[
                                     { icon: 'fa-bullseye', title: 'Ser Diretivo', desc: 'Correção imediata, sem eufemismos.' },
-                                    { icon: 'fa-handshake', title: 'Estar Próximo', desc: 'Atuação em tempo real, não relatório mensal.' },
-                                    { icon: 'fa-bolt', title: 'Orientado à Ação', desc: 'Impacto direto nas métricas financeiras.' },
+                                    { icon: 'fa-handshake', title: 'Sócio Operacional', desc: 'Não somos investidores passivos — atuamos mão na massa.' },
+                                    { icon: 'fa-bolt', title: 'Resultado em Caixa', desc: 'Nosso custo vem depois do seu crescimento.' },
                                 ].map((pillar, i) => (
-                                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }} key={i}>
-                                        <div style={{ width: '32px', height: '32px', background: 'var(--cobre)', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                                            <i className={`fas ${pillar.icon}`} style={{ color: 'var(--off-white)', fontSize: '0.75rem' }}></i>
+                                    <div className="vb-pillar-item" key={i}>
+                                        <div className="vb-pillar-icon">
+                                            <i className={`fas ${pillar.icon}`}></i>
                                         </div>
                                         <div>
-                                            <strong style={{ fontFamily: 'var(--font-display)', textTransform: 'uppercase', letterSpacing: '0.05em', fontSize: '0.9rem', color: 'var(--off-white)' }}>{pillar.title}</strong>
-                                            <p style={{ fontSize: '0.85rem', margin: 0 }}>{pillar.desc}</p>
+                                            <strong className="vb-pillar-title">{pillar.title}</strong>
+                                            <p className="vb-pillar-desc">{pillar.desc}</p>
                                         </div>
                                     </div>
                                 ))}
                             </div>
-                            <Link to="/venture-builder" className="btn btn-primary">Conhecer o Modelo <i className="fas fa-arrow-right"></i></Link>
+                            <a href="#triagem" className="btn btn-primary">Começar pelo Consultório <i className="fas fa-arrow-right"></i></a>
                         </div>
 
                         <div data-reveal data-reveal-delay="2">
-                            <div style={{ background: 'var(--cinza-escuro)', borderRadius: 'var(--border-radius-lg)', padding: '2.5rem', border: '1px solid rgba(247,238,235,0.08)' }}>
-                                <div className="sg-tag">Seja uma Venture</div>
-                                <h4 style={{ color: 'var(--off-white)', fontSize: '1.3rem', marginBottom: '1rem' }}>Seu negócio tem potencial para ir além?</h4>
-                                <p style={{ fontSize: '0.9rem', marginBottom: '1.5rem' }}>Preencha o formulário e a equipe da Singular avalia se o seu negócio se encaixa no modelo de aceleração.</p>
-                                <form id="venture-quick-form" style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }} onSubmit={handleVentureSubmit}>
+                            <div className="vb-form-card">
+                                <div className="sg-tag">Escada de Valor</div>
+                                <h4 className="vb-form-title">Pronto para o próximo nível?</h4>
+                                <p className="vb-form-desc">Preencha o formulário e a equipe da Singular avalia se o seu negócio se encaixa no modelo de co-gestão (Sócio de Aluguel).</p>
+                                <form id="venture-quick-form" className="vb-form" onSubmit={handleVentureSubmit}>
                                     <div className="form-group">
                                         <label htmlFor="v-nome">Seu nome</label>
                                         <input type="text" id="v-nome" placeholder="Nome completo" />
@@ -335,7 +335,7 @@ export default function Home() {
                                             <option>R$ 200k – R$ 1M</option><option>Acima de R$ 1M</option>
                                         </select>
                                     </div>
-                                    <button type="submit" className="btn btn-primary" style={{ width: '100%', justifyContent: 'center' }} disabled={ventureLoading}>
+                                    <button type="submit" className="btn btn-primary btn-full" disabled={ventureLoading}>
                                         {ventureLoading ? <><i className="fas fa-spinner fa-spin"></i> Enviando...</> : <>Quero Ser uma Venture <i className="fas fa-arrow-right"></i></>}
                                     </button>
                                 </form>
@@ -349,16 +349,16 @@ export default function Home() {
             <section className="areas-section">
                 <div className="container">
                     <div className="section-header" data-reveal>
-                        <div className="sg-tag sg-tag-outline">Braços Técnicos</div>
-                        <h2>Áreas de <span style={{ color: 'var(--cobre)' }}>Atuação</span></h2>
-                        <p>A Singular sustenta especialistas em cada frente crítica do negócio. Não generistas — especialistas com foco cirúrgico na sua dor.</p>
+                        <div className="sg-tag sg-tag-outline">Cases Reais</div>
+                        <h2>Resultados em <span style={{ color: 'var(--cobre)' }}>90 Dias</span></h2>
+                        <p>Quick wins reais de clientes que passaram pelo Consultório Empresarial. Não teoria — resultados financeiros concretos.</p>
                     </div>
 
                     <div className="areas-grid">
                         {[
-                            { icon: '⚖️', title: 'Jurídico', desc: 'Proteção real do patrimônio e das relações societárias.', items: ['Acordos de Sócios', 'Proteção Patrimonial', 'Contratos Empresariais', 'Compliance e Governança'] },
-                            { icon: '💻', title: 'Tecnologia', desc: 'Implementação prática de IA e automações que geram resultado.', items: ['Implementação de IA', 'Automações n8n', 'Infraestrutura AWS/Docker', 'Integração de Sistemas'] },
-                            { icon: '📊', title: 'Financeiro', desc: 'Clareza total sobre o dinheiro que entra e sai do seu negócio.', items: ['Gestão de Fluxo de Caixa', 'Alocação de Recursos', 'Precificação Estratégica', 'Controle de Custos'] },
+                            { icon: '🐾', title: 'Pet Shop Online', desc: 'Parceria com veterinários locais e repacotamento de serviços.', items: ['Ticket médio subiu para R$1.300', 'Parceria com microinfluenciadores', 'Reativação de clientes inativos', 'Campanha de indicação estruturada'] },
+                            { icon: '💆', title: 'Clínica de Estética', desc: 'Reativação de ex-clientes VIP com script de ligação do Playbook.', items: ['+R$2.000 em vendas em 3 dias', 'Open house com indicação de amigos', 'Ticket médio subiu para R$1.500', 'Base de clientes segmentada'] },
+                            { icon: '📊', title: 'Empresa de Serviços', desc: 'Raio-X financeiro revelou serviço subprecificado em 20%.', items: ['Ajuste de preço sem perda de vendas', '+R$5k no caixa mensal', 'Renegociação com fornecedores -10%', 'Economia de R$3k/mês em insumos'] },
                         ].map((area, i) => (
                             <div className="area-card" data-reveal data-reveal-delay={`${i + 1}`} key={i}>
                                 <span className="area-icon">{area.icon}</span>
@@ -373,37 +373,37 @@ export default function Home() {
                         ))}
                     </div>
 
-                    <div style={{ textAlign: 'center', marginTop: '3rem' }} data-reveal>
-                        <Link to="/areas" className="btn btn-dark btn-lg" style={{ borderColor: 'rgba(28,28,28,0.3)' }}>
-                            Ver Todas as Áreas <i className="fas fa-arrow-right"></i>
-                        </Link>
+                    <div className="section-cta-center" data-reveal>
+                        <a href="#triagem" className="btn btn-dark btn-lg">
+                            Quero Resultados Assim <i className="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
             </section>
 
             {/* TRIAGEM */}
-            <section id="triagem" style={{ background: 'var(--preto)', padding: '100px 0' }}>
+            <section id="triagem" className="triagem-section">
                 <div className="container">
-                    <div className="triagem-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'start' }}>
+                    <div className="triagem-grid">
                         <div data-reveal>
-                            <div className="sg-tag">Primeiro Passo</div>
-                            <h2 style={{ marginBottom: '1.5rem' }}>Agende Sua<br /><span style={{ color: 'var(--cobre)' }}>Triagem Gratuita</span></h2>
-                            <p style={{ marginBottom: '2rem', fontSize: '1.05rem' }}>
-                                Em menos de 60 minutos, um gerente capacitado da Singular faz um diagnóstico real do seu negócio. Sem venda disfarçada. Sem proposta genérica.
+                            <div className="sg-tag">Sessão 0 — Anamnese</div>
+                            <h2 className="triagem-title">Agende Sua<br /><span>Triagem Gratuita</span></h2>
+                            <p className="triagem-subtitle">
+                                Em menos de 90 minutos, um consultor sênior da Singular faz a anamnese do seu negócio no hub ARCO. Sem venda disfarçada — é uma consulta real para entender onde o caos começa.
                             </p>
-                            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+                            <div className="triagem-steps">
                                 {[
-                                    { num: '1', title: 'Preencha o formulário', desc: 'Dados básicos do seu negócio e o principal desafio atual.' },
-                                    { num: '2', title: 'Confirme o horário', desc: 'Nossa equipe entra em contato em até 24h para confirmar.' },
-                                    { num: '3', title: 'Receba o diagnóstico', desc: 'Um relatório real com os principais pontos de melhoria do seu negócio.' },
+                                    { num: '1', title: 'Preencha o formulário', desc: 'Dados básicos do seu negócio e o principal desafio que te trouxe aqui.' },
+                                    { num: '2', title: 'Agende no ARCO', desc: 'Nossa equipe entra em contato em até 24h para confirmar a sessão presencial.' },
+                                    { num: '3', title: 'Receba o diagnóstico 360°', desc: 'Saiba exatamente onde estão os gargalos do seu negócio e o caminho para resolvê-los.' },
                                 ].map((step, i) => (
-                                    <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }} key={i}>
-                                        <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'var(--cobre)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, marginTop: '2px' }}>
-                                            <span style={{ fontFamily: 'var(--font-display)', fontWeight: 900, fontSize: '0.75rem', color: 'var(--off-white)' }}>{step.num}</span>
+                                    <div className="triagem-step" key={i}>
+                                        <div className="triagem-step-num">
+                                            <span>{step.num}</span>
                                         </div>
                                         <div>
-                                            <strong style={{ fontFamily: 'var(--font-display)', textTransform: 'uppercase', fontSize: '0.9rem', color: 'var(--off-white)', letterSpacing: '0.06em' }}>{step.title}</strong>
-                                            <p style={{ fontSize: '0.875rem', margin: '0.25rem 0 0' }}>{step.desc}</p>
+                                            <strong className="triagem-step-title">{step.title}</strong>
+                                            <p className="triagem-step-desc">{step.desc}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -411,8 +411,8 @@ export default function Home() {
                         </div>
 
                         <div data-reveal data-reveal-delay="2">
-                            <div style={{ background: 'var(--cinza-escuro)', borderRadius: 'var(--border-radius-lg)', padding: '2.5rem', border: '1px solid rgba(247,238,235,0.08)' }}>
-                                <h4 style={{ color: 'var(--off-white)', fontSize: '1.2rem', marginBottom: '1.5rem', textTransform: 'uppercase', letterSpacing: '0.06em' }}>Formulário de Triagem</h4>
+                            <div className="triagem-form-card">
+                                <h4 className="triagem-form-title">Formulário de Triagem</h4>
                                 <form id="triagem-form" onSubmit={handleTriagemSubmit}>
                                     <div className="form-grid">
                                         <div className="form-group">
@@ -440,10 +440,10 @@ export default function Home() {
                                             <textarea id="t-desafio" placeholder="Descreva brevemente o maior gargalo do seu negócio..."></textarea>
                                         </div>
                                     </div>
-                                    <button type="submit" className="btn btn-primary btn-lg" style={{ width: '100%', justifyContent: 'center', marginTop: '1.25rem' }} disabled={triagemLoading}>
+                                    <button type="submit" className="btn btn-primary btn-lg btn-full" disabled={triagemLoading}>
                                         {triagemLoading ? <><i className="fas fa-spinner fa-spin"></i> Enviando...</> : <><i className="fas fa-calendar-check"></i> Agendar Minha Triagem Gratuita</>}
                                     </button>
-                                    <p style={{ fontSize: '0.75rem', textAlign: 'center', marginTop: '1rem', color: 'rgba(247,238,235,0.3)' }}>
+                                    <p className="triagem-form-disclaimer">
                                         Sem spam. Seus dados são tratados com sigilo total.
                                     </p>
                                 </form>
@@ -455,10 +455,10 @@ export default function Home() {
 
             {/* CTA BANNER */}
             <div className="cta-banner">
-                <div className="container" style={{ textAlign: 'center' }}>
-                    <h2 data-reveal>"Negócios não quebram por falta de venda,<br />quebram por falta de <em style={{ fontStyle: 'normal', color: 'var(--preto)' }}>governança.</em>"</h2>
-                    <p data-reveal data-reveal-delay="1" style={{ color: 'rgba(247,238,235,0.85)' }}>A Singular está pronta para ser o pilar de governança que seu negócio precisa.</p>
-                    <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }} data-reveal data-reveal-delay="2">
+                <div className="container cta-banner-content">
+                    <h2 data-reveal>"Antes de falar de valores,<br />precisamos falar de <em>crescimento real.</em>"</h2>
+                    <p data-reveal data-reveal-delay="1">Garantia: se em 60 dias você não tiver clareza do caixa + plano de metas executável, estendemos o consultório por mais 1 mês sem cobrar nada.</p>
+                    <div className="cta-banner-actions" data-reveal data-reveal-delay="2">
                         <a href="#triagem" className="btn btn-dark btn-lg"><i className="fas fa-calendar-check"></i> Agendar Triagem Gratuita</a>
                         <Link to="/ecossistema" className="btn btn-outline btn-lg" style={{ borderColor: 'rgba(247,238,235,0.4)', color: 'var(--off-white)' }}>Ver o Ecossistema</Link>
                     </div>

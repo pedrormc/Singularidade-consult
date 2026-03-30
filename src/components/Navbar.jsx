@@ -64,10 +64,8 @@ export default function Navbar() {
 
                     <div className="navbar-links">
                         <Link to="/ecossistema" className={isActive('/ecossistema') ? 'active' : ''}>Ecossistema</Link>
-                        <Link to="/#consultorio" onClick={(e) => handleAnchorClick(e, 'consultorio')}>Consultório</Link>
-                        <Link to="/venture-builder" className={isActive('/venture-builder') ? 'active' : ''}>Venture Builder</Link>
+                        <Link to="/consultorio-empresarial" className={isActive('/consultorio-empresarial') ? 'active' : ''}>Consultório</Link>
                         <Link to="/marketplace" className={isActive('/marketplace') ? 'active' : ''}>Marketplace</Link>
-                        <Link to="/areas" className={isActive('/areas') ? 'active' : ''}>Áreas de Atuação</Link>
                     </div>
 
                     <div className="navbar-cta">
@@ -89,10 +87,8 @@ export default function Navbar() {
 
             <div className={`mobile-menu${menuOpen ? ' open' : ''}`}>
                 <Link to="/ecossistema" onClick={closeMenu}>Ecossistema</Link>
-                <Link to="/#consultorio" onClick={(e) => handleAnchorClick(e, 'consultorio')}>Consultório Empresarial</Link>
-                <Link to="/venture-builder" onClick={closeMenu}>Venture Builder</Link>
+                <Link to="/consultorio-empresarial" onClick={closeMenu}>Consultório Empresarial</Link>
                 <Link to="/marketplace" onClick={closeMenu}>Marketplace</Link>
-                <Link to="/areas" onClick={closeMenu}>Áreas de Atuação</Link>
                 <Link to="/#triagem" className="btn btn-primary" style={{ marginTop: '1rem', justifyContent: 'center' }} onClick={(e) => handleAnchorClick(e, 'triagem')}>
                     <i className="fas fa-calendar-check"></i> Agendar Triagem Gratuita
                 </Link>

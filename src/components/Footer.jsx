@@ -6,7 +6,9 @@ export default function Footer() {
             <div className="container">
                 <div className="footer-grid">
                     <div className="footer-brand">
-                        <Link to="/" className="footer-logo">SINGULAR</Link>
+                        <Link to="/" className="footer-logo">
+                            <img src="/logo-full.svg" alt="Singular" className="footer-logo-img" />
+                        </Link>
                         <p className="footer-tagline">O centro de apoio ao empresário onde o caos vira previsibilidade. Processos, tecnologia e governança ombro a ombro com quem empreende.</p>
                         <div className="footer-social">
                             <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>

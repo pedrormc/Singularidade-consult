@@ -1,0 +1,905 @@
+/* ---- Consultório Empresarial Page Styles ---- */
+
+/* Hero */
+.ce-hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    background: var(--preto-puro);
+    padding: 140px 0 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.ce-hero::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -15%;
+    width: 60%;
+    height: 80%;
+    background: radial-gradient(ellipse, rgba(230, 78, 16, 0.12) 0%, transparent 65%);
+    pointer-events: none;
+}
+
+.ce-hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.ce-hero-tagline {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.ce-hero-tagline .cobre {
+    color: var(--cobre);
+}
+
+.ce-hero-sub {
+    font-size: 1.1rem;
+    max-width: 700px;
+    color: rgba(247, 238, 235, 0.75);
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
+}
+
+/* Steps Grid (Como funciona / Início) */
+.ce-steps-section {
+    background: var(--preto);
+    padding: 100px 0;
+}
+
+.ce-steps-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.ce-step {
+    padding: 2rem 0;
+    border-top: 3px solid var(--cobre);
+}
+
+.ce-step-num {
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: rgba(247, 238, 235, 0.4);
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+
+.ce-step h4 {
+    color: var(--off-white);
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+}
+
+/* Sintomas Section */
+.ce-sintomas-section {
+    background: var(--preto-puro);
+    padding: 100px 0;
+}
+
+.ce-sintomas-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2.5rem;
+}
+
+.ce-sintoma-bubble {
+    background: var(--cobre);
+    color: var(--off-white);
+    padding: 1.25rem 1.75rem;
+    border-radius: var(--border-radius-lg);
+    font-size: 1rem;
+    font-weight: 600;
+    position: relative;
+    flex: 1;
+    min-width: 220px;
+}
+
+.ce-sintoma-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 24px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid var(--cobre);
+}
+
+.ce-sintoma-bubble.full-width {
+    flex-basis: 100%;
+    max-width: 600px;
+}
+
+/* Areas da Gestão */
+.ce-areas-section {
+    background: var(--preto);
+    padding: 100px 0;
+}
+
+.ce-areas-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2.5rem;
+}
+
+.ce-area-pill {
+    background: var(--cobre);
+    color: var(--off-white);
+    padding: 1.1rem 2rem;
+    border-radius: var(--border-radius-lg);
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    flex: 1;
+    min-width: 180px;
+    text-align: center;
+}
+
+.ce-area-pill.full-width {
+    flex-basis: 100%;
+    max-width: 100%;
+}
+
+.ce-areas-note {
+    margin-top: 2rem;
+    font-style: italic;
+    color: var(--cobre);
+    font-size: 1rem;
+}
+
+/* Sintoma ≠ Causa */
+.ce-causa-section {
+    background: var(--preto-puro);
+    padding: 100px 0;
+}
+
+.ce-causa-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    max-width: 700px;
+}
+
+.ce-causa-item {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.ce-causa-num {
+    width: 48px;
+    height: 48px;
+    background: var(--cobre);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 900;
+    color: var(--off-white);
+    flex-shrink: 0;
+}
+
+.ce-causa-text {
+    font-size: 1.05rem;
+    color: var(--off-white);
+    font-weight: 600;
+}
+
+.ce-causa-warning {
+    margin-top: 2rem;
+    color: var(--cobre);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Boletos Invisíveis */
+.ce-boletos-section {
+    background: var(--preto);
+    padding: 100px 0;
+}
+
+.ce-boletos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.ce-boleto-item {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(247, 238, 235, 0.08);
+}
+
+.ce-boleto-title {
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--cobre);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.4rem;
+}
+
+.ce-boleto-desc {
+    font-size: 0.95rem;
+    color: rgba(247, 238, 235, 0.7);
+    margin: 0;
+}
+
+/* Custo Section */
+.ce-custo-section {
+    background: var(--preto-puro);
+    padding: 100px 0;
+}
+
+.ce-custo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.ce-custo-card {
+    background: var(--cobre);
+    padding: 2rem;
+    border-radius: var(--border-radius-lg);
+    color: var(--off-white);
+}
+
+.ce-custo-card h4 {
+    font-size: 1.2rem;
+    color: var(--off-white);
+    margin-bottom: 0.75rem;
+}
+
+.ce-custo-card p {
+    font-size: 0.9rem;
+    color: rgba(247, 238, 235, 0.85);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Por que existe */
+.ce-porque-section {
+    background: var(--preto);
+    padding: 100px 0;
+}
+
+.ce-porque-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.ce-porque-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.ce-porque-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--cobre);
+    border-radius: var(--border-radius);
+    flex-shrink: 0;
+}
+
+.ce-porque-item p {
+    color: var(--off-white);
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin: 0;
+    padding-top: 8px;
+}
+
+/* Jornada Timeline */
+.ce-jornada-section {
+    background: var(--preto-puro);
+    padding: 100px 0;
+}
+
+.ce-jornada-sub {
+    color: var(--off-white);
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+}
+
+.ce-timeline {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-left: 60px;
+    gap: 0;
+}
+
+.ce-timeline::before {
+    content: '';
+    position: absolute;
+    left: 23px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: rgba(247, 238, 235, 0.15);
+}
+
+.ce-timeline-item {
+    position: relative;
+    padding: 1.5rem 0 1.5rem 1.5rem;
+}
+
+.ce-timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.ce-timeline-num {
+    position: absolute;
+    left: -60px;
+    top: 1.5rem;
+    width: 44px;
+    height: 44px;
+    background: var(--cobre);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: var(--off-white);
+    z-index: 1;
+}
+
+.ce-timeline-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--off-white);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.3rem;
+}
+
+.ce-timeline-desc {
+    font-size: 0.9rem;
+    color: rgba(247, 238, 235, 0.6);
+    margin: 0;
+}
+
+/* Metodologia */
+.ce-metodologia-section {
+    background: var(--preto);
+    padding: 100px 0;
+}
+
+.ce-metodologia-flow {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-top: 3rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+}
+
+.ce-metodo-step {
+    flex: 1;
+    min-width: 180px;
+    text-align: center;
+    position: relative;
+}
+
+.ce-metodo-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid var(--cobre);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    position: relative;
+}
+
+.ce-metodo-circle-inner {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--off-white);
+    text-align: center;
+    line-height: 1.2;
+    padding: 0.5rem;
+}
+
+.ce-metodo-desc {
+    font-size: 0.8rem;
+    color: rgba(247, 238, 235, 0.55);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.ce-metodo-arrow {
+    position: absolute;
+    top: 40px;
+    right: -16px;
+    color: var(--cobre);
+    font-size: 1rem;
+    z-index: 1;
+}
+
+.ce-metodo-note {
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    color: rgba(247, 238, 235, 0.5);
+}
+
+.ce-metodo-note strong {
+    color: var(--off-white);
+}
+
+/* Detalhamento das 3 consultas */
+.ce-detalhe-section {
+    background: var(--preto-puro);
+    padding: 100px 0;
+}
+
+.ce-detalhe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.ce-detalhe-card {
+    background: var(--cobre);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    color: var(--off-white);
+}
+
+.ce-detalhe-card h4 {
+    font-size: 1rem;
+    color: var(--off-white);
+    margin-bottom: 1rem;
+    letter-spacing: 0.03em;
+}
+
+.ce-detalhe-card ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.ce-detalhe-card ul li {
+    font-size: 0.85rem;
+    color: rgba(247, 238, 235, 0.9);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.5;
+}
+
+.ce-detalhe-card ul li::before {
+    content: '\2022';
+    position: absolute;
+    left: 0;
+    color: var(--off-white);
+}
+
+/* Entregáveis */
+.ce-entregaveis-section {
+    background: var(--preto);
+    padding: 100px 0;
+}
+
+.ce-entregaveis-intro {
+    font-size: 1rem;
+    color: rgba(247, 238, 235, 0.7);
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+}
+
+.ce-entregaveis-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.ce-entregavel {
+    background: var(--cinza-escuro);
+    border: 1px solid rgba(230, 78, 16, 0.25);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.ce-entregavel-num {
+    width: 44px;
+    height: 44px;
+    background: var(--cobre);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: var(--off-white);
+    flex-shrink: 0;
+}
+
+.ce-entregavel h4 {
+    color: var(--off-white);
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+}
+
+.ce-entregavel p {
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Avaliação Financeira */
+.ce-financeira-section {
+    background: var(--preto-puro);
+    padding: 100px 0;
+}
+
+.ce-financeira-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.ce-fin-card {
+    background: var(--cobre);
+    border-radius: var(--border-radius-lg);
+    padding: 1.75rem;
+    color: var(--off-white);
+}
+
+.ce-fin-card h4 {
+    font-size: 1rem;
+    color: var(--off-white);
+    margin-bottom: 0.5rem;
+}
+
+.ce-fin-card p {
+    font-size: 0.85rem;
+    color: rgba(247, 238, 235, 0.85);
+    margin: 0;
+}
+
+/* Investimento / Pricing */
+.ce-pricing-section {
+    background: var(--preto);
+    padding: 100px 0;
+}
+
+.ce-pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.ce-pricing-card {
+    background: var(--cinza-escuro);
+    border: 1px solid rgba(247, 238, 235, 0.08);
+    border-radius: var(--border-radius-lg);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: var(--transition);
+    position: relative;
+}
+
+.ce-pricing-card:hover {
+    border-color: rgba(230, 78, 16, 0.4);
+    transform: translateY(-4px);
+}
+
+.ce-pricing-card.featured {
+    border-color: var(--cobre);
+    background: linear-gradient(180deg, rgba(230, 78, 16, 0.08) 0%, var(--cinza-escuro) 100%);
+}
+
+.ce-pricing-card.featured::before {
+    content: 'Mais Popular';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--cobre);
+    color: var(--off-white);
+    font-family: var(--font-display);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 100px;
+}
+
+.ce-pricing-label {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cobre);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.ce-pricing-value {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--off-white);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.ce-pricing-installment {
+    font-size: 0.85rem;
+    color: rgba(247, 238, 235, 0.5);
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.ce-pricing-desc {
+    font-size: 0.9rem;
+    color: rgba(247, 238, 235, 0.7);
+    margin-bottom: 2rem;
+}
+
+/* Casos Reais */
+.ce-casos-section {
+    background: var(--preto-puro);
+    padding: 100px 0;
+}
+
+.ce-casos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.ce-caso-card {
+    background: var(--cinza-escuro);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid rgba(247, 238, 235, 0.08);
+    padding: 2.5rem;
+}
+
+.ce-caso-card h4 {
+    color: var(--off-white);
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.ce-caso-card h4 span {
+    color: var(--cobre);
+}
+
+.ce-caso-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.ce-caso-item {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+}
+
+.ce-caso-bar {
+    width: 4px;
+    min-height: 40px;
+    background: var(--cobre);
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.ce-caso-item p {
+    font-size: 0.95rem;
+    color: rgba(247, 238, 235, 0.75);
+    margin: 0;
+}
+
+/* Planos de Acompanhamento */
+.ce-acompanhamento-section {
+    background: var(--preto);
+    padding: 100px 0;
+}
+
+.ce-acomp-intro {
+    font-size: 1rem;
+    color: rgba(247, 238, 235, 0.7);
+    margin-bottom: 1rem;
+}
+
+.ce-acomp-intro-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 3rem;
+}
+
+.ce-acomp-intro-list li {
+    font-size: 0.9rem;
+    color: rgba(247, 238, 235, 0.6);
+    padding-left: 1.25rem;
+    position: relative;
+}
+
+.ce-acomp-intro-list li::before {
+    content: '\2022';
+    position: absolute;
+    left: 0;
+    color: var(--cobre);
+}
+
+.ce-acomp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.ce-acomp-card {
+    background: var(--cinza-escuro);
+    border: 1px solid rgba(247, 238, 235, 0.08);
+    border-top: 3px solid var(--cobre);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    transition: var(--transition);
+}
+
+.ce-acomp-card:hover {
+    border-color: rgba(230, 78, 16, 0.3);
+    border-top-color: var(--cobre);
+    transform: translateY(-3px);
+}
+
+.ce-acomp-num {
+    width: 36px;
+    height: 36px;
+    background: var(--cobre);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 0.9rem;
+    font-weight: 900;
+    color: var(--off-white);
+    margin-bottom: 1rem;
+}
+
+.ce-acomp-card h4 {
+    color: var(--cobre);
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.03em;
+}
+
+.ce-acomp-card ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.ce-acomp-card ul li {
+    font-size: 0.8rem;
+    color: rgba(247, 238, 235, 0.65);
+    padding-left: 1rem;
+    position: relative;
+    line-height: 1.5;
+}
+
+.ce-acomp-card ul li::before {
+    content: '\2022';
+    position: absolute;
+    left: 0;
+    color: var(--cobre);
+}
+
+/* O que leva ao final */
+.ce-resultado-section {
+    background: var(--preto-puro);
+    padding: 100px 0;
+}
+
+.ce-resultado-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2.5rem;
+}
+
+.ce-resultado-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.ce-resultado-item i {
+    color: var(--cobre);
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+.ce-resultado-item span {
+    font-size: 1rem;
+    color: var(--off-white);
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .ce-detalhe-grid,
+    .ce-custo-grid,
+    .ce-financeira-grid,
+    .ce-pricing-cards,
+    .ce-acomp-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ce-casos-grid,
+    .ce-boletos-grid,
+    .ce-porque-grid,
+    .ce-resultado-list {
+        grid-template-columns: 1fr;
+    }
+
+    .ce-steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .ce-metodologia-flow {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ce-metodo-arrow {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .ce-sintomas-grid {
+        flex-direction: column;
+    }
+
+    .ce-areas-grid {
+        flex-direction: column;
+    }
+
+    .ce-sintoma-bubble {
+        min-width: unset;
+    }
+}

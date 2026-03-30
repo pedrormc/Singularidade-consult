@@ -4,8 +4,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from '../Home'
 import Ecossistema from './pages/Ecossistema'
-import VentureBuilder from './pages/VentureBuilder'
-import Areas from './pages/Areas'
+import ConsultorioEmpresarial from './pages/ConsultorioEmpresarial'
 import Marketplace from './pages/Marketplace'
 import ProviderProfile from './pages/ProviderProfile'
 import Backoffice from './pages/Backoffice'
@@ -26,8 +25,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/ecossistema" element={<Ecossistema />} />
-                <Route path="/venture-builder" element={<VentureBuilder />} />
-                <Route path="/areas" element={<Areas />} />
+                <Route path="/consultorio-empresarial" element={<ConsultorioEmpresarial />} />
                 <Route path="/marketplace" element={<Marketplace />} />
                 <Route path="/marketplace/fornecedor/:slug" element={<ProviderProfile />} />
                 <Route path="/backoffice" element={<Backoffice />} />

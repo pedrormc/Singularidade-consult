@@ -10,7 +10,7 @@
    - Laranja: #2050F2 (secondary)
    ============================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Barlow+Condensed:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
 
 /* ---- CSS Variables ---- */
 :root {
@@ -28,8 +28,8 @@
   --branco: #FFFFFF;
   --overlay-dark: rgba(28, 28, 28, 0.85);
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --font-main: 'Inter', sans-serif;
-  --font-display: 'Barlow Condensed', sans-serif;
+  --font-main: 'Gotham', 'Montserrat', sans-serif;
+  --font-display: 'Gotham', 'Montserrat', sans-serif;
   --border-radius: 4px;
   --border-radius-lg: 8px;
 }
@@ -321,9 +321,11 @@ p {
   position: relative;
 }
 
-.logo-symbol svg {
+.logo-symbol svg,
+.logo-symbol img {
   width: 100%;
   height: 100%;
+  object-fit: contain;
 }
 
 .logo-text {
@@ -464,16 +466,112 @@ p {
   overflow: hidden;
 }
 
-.hero-shader-bg {
+/* CSS animated hero background — replaces WebGL shader */
+.hero-css-bg {
   position: absolute;
   inset: 0;
   z-index: 0;
+  overflow: hidden;
+  background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(230, 78, 16, 0.12) 0%, transparent 70%),
+              radial-gradient(ellipse 60% 50% at 20% 80%, rgba(230, 78, 16, 0.06) 0%, transparent 60%);
 }
 
-.hero-shader-bg canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
+.hero-streak {
+  position: absolute;
+  width: 200%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(230, 78, 16, 0.6) 30%, rgba(247, 238, 235, 0.3) 50%, rgba(230, 78, 16, 0.6) 70%, transparent 100%);
+  transform: rotate(-35deg);
+  opacity: 0;
+  animation: streak-slide 6s ease-in-out infinite;
+  filter: blur(1px);
+}
+
+.hero-streak::after {
+  content: '';
+  position: absolute;
+  inset: -4px 0;
+  background: inherit;
+  filter: blur(8px);
+  opacity: 0.4;
+}
+
+.hero-streak-1 {
+  top: 15%;
+  left: -50%;
+  animation-delay: 0s;
+  animation-duration: 5s;
+  height: 1.5px;
+}
+
+.hero-streak-2 {
+  top: 35%;
+  left: -50%;
+  animation-delay: 1.2s;
+  animation-duration: 6.5s;
+  height: 2px;
+}
+
+.hero-streak-3 {
+  top: 60%;
+  left: -50%;
+  animation-delay: 2.8s;
+  animation-duration: 5.5s;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(230, 78, 16, 0.4) 40%, rgba(247, 238, 235, 0.2) 50%, rgba(230, 78, 16, 0.4) 60%, transparent 100%);
+}
+
+.hero-streak-4 {
+  top: 78%;
+  left: -50%;
+  animation-delay: 4s;
+  animation-duration: 7s;
+  height: 2.5px;
+}
+
+.hero-streak-5 {
+  top: 45%;
+  left: -50%;
+  animation-delay: 3.5s;
+  animation-duration: 8s;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(230, 78, 16, 0.3) 50%, transparent 100%);
+}
+
+.hero-noise {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+}
+
+@keyframes streak-slide {
+  0% {
+    opacity: 0;
+    transform: rotate(-35deg) translateX(-30%);
+  }
+  15% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.3;
+  }
+  85% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(-35deg) translateX(30%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-streak {
+    animation: none;
+    opacity: 0.3;
+    transform: rotate(-35deg);
+  }
 }
 
 .hero-glow {
@@ -687,7 +785,7 @@ p {
   border-radius: var(--border-radius-lg);
   border-left: 4px solid var(--cobre);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .stat-card::after {
@@ -710,10 +808,11 @@ p {
   display: block;
 }
 
-.stat-card-text {
-  font-size: 0.9rem;
-  color: rgba(247, 238, 235, 0.7);
-  margin-top: 0.5rem;
+.stat-card .stat-card-text {
+  font-size: 0.95rem;
+  color: rgba(247, 238, 235, 0.85);
+  margin-top: 0.75rem;
+  line-height: 1.5;
 }
 
 /* ---- Consultório Section ---- */
@@ -1200,18 +1299,13 @@ p {
 .footer-brand {}
 
 .footer-logo {
-  font-family: var(--font-display);
-  font-size: 1.8rem;
-  font-weight: 900;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--off-white);
-  margin-bottom: 1rem;
   display: block;
+  margin-bottom: 1rem;
 }
 
-.footer-logo span {
-  color: var(--cobre);
+.footer-logo-img {
+  height: 32px;
+  width: auto;
 }
 
 .footer-tagline {
@@ -1549,13 +1643,348 @@ p {
   color: var(--cobre);
 }
 
+/* ---- New CSS Classes (extracted from inline styles) ---- */
+
+.btn-full {
+  width: 100%;
+  justify-content: center;
+  margin-top: 1.25rem;
+}
+
+.section-subtitle {
+  color: rgba(247, 238, 235, 0.5);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+
+.section-cta-center {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.solutions-block {
+  margin-top: 4rem;
+}
+
+/* Problem Grid */
+.problem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.problem-desc {
+  font-size: 1.05rem;
+  color: rgba(28, 28, 28, 0.7);
+  margin-bottom: 1.5rem;
+}
+
+/* Triage Card */
+.triage-card-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.triage-card-title {
+  font-size: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.triage-card-desc {
+  max-width: 520px;
+  font-size: 1rem;
+}
+
+.triage-card-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.triage-card-price {
+  text-align: right;
+}
+
+.triage-price-value {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 900;
+  color: rgba(247, 238, 235, 0.9);
+  display: block;
+  line-height: 1;
+}
+
+.triage-price-label {
+  font-size: 0.8rem;
+  color: rgba(247, 238, 235, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Proximity Bar */
+.proximity-bar {
+  margin-top: 3rem;
+  padding: 2.5rem;
+  background: var(--cinza-escuro);
+  border-radius: var(--border-radius-lg);
+  border: 1px solid rgba(247, 238, 235, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.proximity-bar-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--cobre);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.proximity-bar-icon i {
+  color: var(--off-white);
+  font-size: 1.5rem;
+}
+
+.proximity-bar-text h4 {
+  color: var(--off-white);
+  margin-bottom: 0.4rem;
+  font-size: 1.2rem;
+}
+
+.proximity-bar-text p {
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.proximity-bar-cta {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* VB Grid */
+.vb-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.vb-title {
+  margin-bottom: 1.5rem;
+}
+
+.vb-title span {
+  color: var(--cobre);
+}
+
+.vb-desc {
+  margin-bottom: 1.5rem;
+}
+
+.vb-pillars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.vb-pillar-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vb-pillar-icon {
+  width: 32px;
+  height: 32px;
+  background: var(--cobre);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.vb-pillar-icon i {
+  color: var(--off-white);
+  font-size: 0.75rem;
+}
+
+.vb-pillar-title {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+  color: var(--off-white);
+}
+
+.vb-pillar-desc {
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.vb-form-card {
+  background: var(--cinza-escuro);
+  border-radius: var(--border-radius-lg);
+  padding: 2.5rem;
+  border: 1px solid rgba(247, 238, 235, 0.08);
+}
+
+.vb-form-title {
+  color: var(--off-white);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.vb-form-desc {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.vb-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Triagem Section */
+.triagem-section {
+  background: var(--preto);
+  padding: 100px 0;
+}
+
+.triagem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.triagem-title {
+  margin-bottom: 1.5rem;
+}
+
+.triagem-title span {
+  color: var(--cobre);
+}
+
+.triagem-subtitle {
+  margin-bottom: 2rem;
+  font-size: 1.05rem;
+}
+
+.triagem-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.triagem-step {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.triagem-step-num {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--cobre);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.triagem-step-num span {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 0.75rem;
+  color: var(--off-white);
+}
+
+.triagem-step-title {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: var(--off-white);
+  letter-spacing: 0.06em;
+}
+
+.triagem-step-desc {
+  font-size: 0.875rem;
+  margin: 0.25rem 0 0;
+}
+
+.triagem-form-card {
+  background: var(--cinza-escuro);
+  border-radius: var(--border-radius-lg);
+  padding: 2.5rem;
+  border: 1px solid rgba(247, 238, 235, 0.08);
+}
+
+.triagem-form-title {
+  color: var(--off-white);
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.triagem-form-disclaimer {
+  font-size: 0.75rem;
+  text-align: center;
+  margin-top: 1rem;
+  color: rgba(247, 238, 235, 0.3);
+}
+
+/* CTA Banner */
+.cta-banner-content {
+  text-align: center;
+}
+
+.cta-banner h2 em {
+  font-style: normal;
+  color: var(--preto);
+}
+
+.cta-banner-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
 /* ---- Responsive ---- */
+
+/* Tablet */
 @media (max-width: 1024px) {
   .navbar-links {
     gap: 1.25rem;
   }
+
+  .problem-grid,
+  .vb-grid,
+  .triagem-grid {
+    gap: 3rem;
+  }
 }
 
+/* Mobile landscape / small tablet */
 @media (max-width: 768px) {
 
   .navbar-links,
@@ -1567,16 +1996,63 @@ p {
     display: flex;
   }
 
+  /* Hero */
+  .hero {
+    min-height: auto;
+    padding-top: 72px;
+  }
+
+  .hero-content {
+    padding-top: 48px;
+    padding-bottom: 60px;
+  }
+
   .hero h1 {
     font-size: clamp(2.5rem, 10vw, 4rem);
   }
 
+  .hero-sub {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-stats {
+    gap: 1.5rem;
+  }
+
+  .hero-stat-number {
+    font-size: 2rem;
+  }
+
+  .hero-stat-label {
+    font-size: 0.7rem;
+    max-width: 140px;
+  }
+
+  /* Sections padding */
   .section-pad {
     padding: 70px 0;
   }
 
-  .hero-stats {
-    gap: 2rem;
+  .problem-section,
+  .consultorio-section,
+  .ecosystem-section,
+  .vb-section,
+  .areas-section,
+  .triagem-section {
+    padding: 60px 0;
+  }
+
+  .cta-banner {
+    padding: 50px 0;
+  }
+
+  /* All 2-column grids → single column */
+  .problem-grid,
+  .vb-grid,
+  .triagem-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 
   .consulta-cards,
@@ -1589,15 +2065,132 @@ p {
   .solutions-grid {
     grid-template-columns: 1fr;
   }
+
+  /* Section headers */
+  .section-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .section-header p {
+    font-size: 1rem;
+  }
+
+  /* Triage card responsive */
+  .triage-card {
+    padding: 2rem;
+  }
+
+  .triage-card-inner {
+    flex-direction: column;
+  }
+
+  .triage-card-cta {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .triage-card-price {
+    text-align: left;
+  }
+
+  .triage-card-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Proximity bar */
+  .proximity-bar {
+    padding: 1.5rem;
+    gap: 1.25rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .proximity-bar-cta {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .proximity-bar-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* VB form card */
+  .vb-form-card {
+    padding: 2rem;
+  }
+
+  /* Triagem form card */
+  .triagem-form-card {
+    padding: 2rem;
+  }
+
+  /* Consulta cards */
+  .consulta-card {
+    padding: 1.5rem;
+  }
+
+  .consulta-num {
+    font-size: 3rem;
+  }
+
+  /* Area cards */
+  .area-card {
+    padding: 2rem;
+  }
+
+  /* Problem quote */
+  .problem-quote {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+
+  /* Footer */
+  .footer {
+    padding: 50px 0 30px;
+  }
+
+  .footer-grid {
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
+/* Mobile portrait */
 @media (max-width: 480px) {
   .container {
     padding: 0 1.25rem;
   }
 
+  /* Hero */
+  .hero-content {
+    padding-top: 32px;
+    padding-bottom: 48px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 10vw, 3rem);
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-sub {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-eyebrow {
+    margin-bottom: 1.25rem;
+  }
+
   .hero-actions {
     flex-direction: column;
+    margin-bottom: 2.5rem;
   }
 
   .hero-actions .btn {
@@ -1605,13 +2198,215 @@ p {
     justify-content: center;
   }
 
-  .btn-lg {
-    padding: 16px 24px;
-    font-size: 0.9rem;
+  .hero-stats {
+    gap: 1.25rem;
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 
+  .hero-stat-number {
+    font-size: 1.75rem;
+  }
+
+  .hero-stat-label {
+    font-size: 0.65rem;
+    max-width: 130px;
+  }
+
+  /* Typography */
   h2 {
-    font-size: 2rem;
+    font-size: clamp(1.6rem, 6vw, 2rem);
+  }
+
+  h3 {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+  }
+
+  /* Buttons */
+  .btn-lg {
+    padding: 14px 20px;
+    font-size: 0.85rem;
+  }
+
+  .btn {
+    padding: 12px 20px;
+    font-size: 0.8rem;
+  }
+
+  /* Sections padding */
+  .problem-section,
+  .consultorio-section,
+  .ecosystem-section,
+  .vb-section,
+  .areas-section,
+  .triagem-section {
+    padding: 48px 0;
+  }
+
+  .cta-banner {
+    padding: 40px 0;
+  }
+
+  /* Triage card */
+  .triage-card {
+    padding: 1.5rem;
+  }
+
+  .triage-card-title {
+    font-size: 1.5rem;
+  }
+
+  .triage-price-value {
+    font-size: 2.25rem;
+  }
+
+  /* Stat cards */
+  .stat-cards {
+    gap: 1rem;
+  }
+
+  .stat-card {
+    padding: 1.5rem;
+  }
+
+  .stat-card-number {
+    font-size: 2.25rem;
+  }
+
+  /* Consulta cards */
+  .consulta-cards {
+    gap: 1rem;
+  }
+
+  /* Proximity bar */
+  .proximity-bar {
+    padding: 1.25rem;
+  }
+
+  .proximity-bar-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .proximity-bar-icon i {
+    font-size: 1.2rem;
+  }
+
+  .proximity-bar-text h4 {
+    font-size: 1rem;
+  }
+
+  .proximity-bar-text p {
+    font-size: 0.85rem;
+  }
+
+  /* Modules grid */
+  .modules-grid {
+    gap: 0.75rem;
+  }
+
+  .module-item {
+    padding: 1rem 0.75rem;
+  }
+
+  .module-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .module-label {
+    font-size: 0.75rem;
+  }
+
+  /* Solution cards */
+  .solution-card {
+    padding: 1.5rem;
+  }
+
+  .solution-card-footer {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+
+  .solution-card-footer .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* VB section */
+  .vb-form-card {
+    padding: 1.5rem;
+  }
+
+  .vb-form-title {
+    font-size: 1.1rem;
+  }
+
+  /* Area cards */
+  .areas-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .area-card {
+    padding: 1.5rem;
+  }
+
+  /* Triagem */
+  .triagem-form-card {
+    padding: 1.5rem;
+  }
+
+  .triagem-form-title {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Form grid */
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 14px 16px;
+    font-size: 16px;
+  }
+
+  /* CTA Banner */
+  .cta-banner h2 {
+    font-size: clamp(1.4rem, 5vw, 2rem);
+  }
+
+  .cta-banner p {
+    font-size: 0.95rem;
+  }
+
+  .cta-banner-actions {
+    flex-direction: column;
+  }
+
+  .cta-banner-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .footer-quote {
+    font-size: 0.85rem;
+  }
+
+  /* Mobile menu */
+  .mobile-menu a {
+    font-size: 1.25rem;
+    padding: 0.75rem 0;
   }
 }
 
