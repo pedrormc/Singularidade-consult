@@ -93,8 +93,8 @@ export default function Home() {
                             <span className="hero-stat-label">/mês — investimento acessível + taxa de êxito</span>
                         </div>
                         <div className="hero-stat-item">
-                            <span className="hero-stat-number">5km</span>
-                            <span className="hero-stat-label">de raio — atuação presencial no hub ARCO</span>
+                            <span className="hero-stat-number">Brasil</span>
+                            <span className="hero-stat-label">rede nacional de coworkings + hub ARCO em Brasília</span>
                         </div>
                     </div>
                 </div>
@@ -150,7 +150,7 @@ export default function Home() {
                     <div className="section-header" data-reveal>
                         <div className="sg-tag">Consultório Empresarial</div>
                         <h2>O Check-up do Seu <span>Negócio</span></h2>
-                        <p>Assim como um médico primeiro faz exames antes de receitar remédio, nós primeiro diagnosticamos seu negócio. Sessões semanais presenciais no hub ARCO com metodologia própria e transformação real em 90 dias.</p>
+                        <p>Assim como um médico primeiro faz exames antes de receitar remédio, nós primeiro diagnosticamos seu negócio. Sessões semanais presenciais no coworking mais próximo da sua empresa, com metodologia própria e transformação real em 90 dias.</p>
                     </div>
 
                     <div className="triage-card" data-reveal data-reveal-delay="1">
@@ -208,14 +208,14 @@ export default function Home() {
 
                     <div className="proximity-bar" data-reveal data-reveal-delay="3">
                         <div className="proximity-bar-icon">
-                            <i className="fas fa-building"></i>
+                            <i className="fas fa-map-marker-alt"></i>
                         </div>
                         <div className="proximity-bar-text">
-                            <h4>Sessões presenciais no hub ARCO</h4>
-                            <p>Não enviamos relatórios por e-mail. Seu consultor está no ARCO — um hub regenerativo com natureza, design e infraestrutura de inovação. Acesso a espaço físico + rede de especialistas credenciados.</p>
+                            <h4>Nos coworkings do Brasil, encontre o consultório mais próximo de você</h4>
+                            <p>Não enviamos relatórios por e-mail. Seu consultor te encontra no coworking parceiro mais próximo da sua empresa — com infraestrutura, café e privacidade pra uma sessão real. Hub ARCO em Brasília como flagship + rede nacional em expansão.</p>
                         </div>
                         <div className="proximity-bar-cta">
-                            <a href="#triagem" className="btn btn-primary">Agendar Visita ao ARCO</a>
+                            <a href="#triagem" className="btn btn-primary">Encontrar Coworking Próximo</a>
                         </div>
                     </div>
                 </div>
@@ -381,6 +381,91 @@ export default function Home() {
                 </div>
             </section>
 
+            {/* PLANOS */}
+            <section className="planos-section" id="planos">
+                <div className="container">
+                    <div className="section-header" data-reveal>
+                        <div className="sg-tag">Investimento</div>
+                        <h2>Escolha o <span>Plano Certo</span> Para o Seu Momento</h2>
+                        <p>Pague à vista ou parcele em 12x no cartão. Todos os planos incluem acesso à rede de especialistas e ao Hub ARCO.</p>
+                    </div>
+
+                    <div className="planos-grid">
+                        {[
+                            {
+                                tag: null,
+                                name: 'Plano Exame',
+                                parcela: 'R$ 159,27',
+                                parcelaSub: '12x no cartão',
+                                avista: 'ou R$ 2.000,00 à vista',
+                                conteudo: '3 consultas exame',
+                                bullets: [
+                                    'Exame do empresário',
+                                    'Exame da empresa (raio-X financeiro)',
+                                    'Plano de direção inicial',
+                                ],
+                                cta: 'Começar pelo Exame',
+                                highlight: false,
+                            },
+                            {
+                                tag: 'MAIS POPULAR',
+                                name: 'Plano Completo',
+                                parcela: 'R$ 399,27',
+                                parcelaSub: '12x no cartão',
+                                avista: 'ou R$ 5.000,00 à vista',
+                                conteudo: '3 consultas exame + 4 semanais',
+                                bullets: [
+                                    'Tudo do Plano Exame',
+                                    '4 sessões executivas semanais',
+                                    'Suporte assíncrono via WhatsApp',
+                                    'Acompanhamento de Quick Wins',
+                                ],
+                                cta: 'Quero o Plano Completo',
+                                highlight: true,
+                            },
+                            {
+                                tag: null,
+                                name: 'Plano Avançado',
+                                parcela: 'R$ 699,27',
+                                parcelaSub: '12x no cartão',
+                                avista: 'ou R$ 8.750,00 à vista',
+                                conteudo: '3 consultas exame + 8 semanais',
+                                bullets: [
+                                    'Tudo do Plano Completo',
+                                    '8 sessões executivas semanais',
+                                    'Plano de 90 dias estruturado',
+                                    'Painel de indicadores e metas SMART',
+                                ],
+                                cta: 'Quero ir Mais Fundo',
+                                highlight: false,
+                            },
+                        ].map((plan, i) => (
+                            <div className={`plano-card${plan.highlight ? ' is-highlighted' : ''}`} data-reveal data-reveal-delay={`${i + 1}`} key={plan.name}>
+                                {plan.tag && <span className="plano-tag">{plan.tag}</span>}
+                                <h3 className="plano-name">{plan.name}</h3>
+                                <span className="plano-parcela-label">PARCELA DE</span>
+                                <div className="plano-price">{plan.parcela}</div>
+                                <span className="plano-parcela-sub">{plan.parcelaSub}</span>
+                                <span className="plano-avista">{plan.avista}</span>
+                                <div className="plano-conteudo">{plan.conteudo}</div>
+                                <ul className="plano-bullets">
+                                    {plan.bullets.map((b, j) => (
+                                        <li key={j}><i className="fas fa-check"></i> {b}</li>
+                                    ))}
+                                </ul>
+                                <a href="#triagem" className={`btn ${plan.highlight ? 'btn-primary' : 'btn-outline'} btn-full`}>
+                                    {plan.cta}
+                                </a>
+                            </div>
+                        ))}
+                    </div>
+
+                    <p className="planos-disclaimer" data-reveal>
+                        + taxa de êxito sobre resultados financeiros gerados, conforme contrato. <strong>Garantia:</strong> 60 dias para clareza do caixa + plano de metas — ou estendemos por mais 1 mês sem cobrar.
+                    </p>
+                </div>
+            </section>
+
             {/* TRIAGEM */}
             <section id="triagem" className="triagem-section">
                 <div className="container">
@@ -389,12 +474,12 @@ export default function Home() {
                             <div className="sg-tag">Sessão 0 — Anamnese</div>
                             <h2 className="triagem-title">Agende Sua<br /><span>Triagem Gratuita</span></h2>
                             <p className="triagem-subtitle">
-                                Em menos de 90 minutos, um consultor sênior da Singular faz a anamnese do seu negócio no hub ARCO. Sem venda disfarçada — é uma consulta real para entender onde o caos começa.
+                                Em menos de 90 minutos, um consultor sênior da Singular faz a anamnese do seu negócio no coworking mais próximo de você. Sem venda disfarçada — é uma consulta real para entender onde o caos começa.
                             </p>
                             <div className="triagem-steps">
                                 {[
                                     { num: '1', title: 'Preencha o formulário', desc: 'Dados básicos do seu negócio e o principal desafio que te trouxe aqui.' },
-                                    { num: '2', title: 'Agende no ARCO', desc: 'Nossa equipe entra em contato em até 24h para confirmar a sessão presencial.' },
+                                    { num: '2', title: 'Agende no coworking mais próximo', desc: 'Nossa equipe identifica o coworking parceiro mais próximo da sua empresa e confirma a sessão em até 24h.' },
                                     { num: '3', title: 'Receba o diagnóstico 360°', desc: 'Saiba exatamente onde estão os gargalos do seu negócio e o caminho para resolvê-los.' },
                                 ].map((step, i) => (
                                     <div className="triagem-step" key={i}>

@@ -101,6 +101,7 @@ const SOLUTIONS = [
 export default function Ecossistema() {
     useScrollRevealAll()
     const [activeFilter, setActiveFilter] = useState('all')
+    const [filtersOpen, setFiltersOpen] = useState(false)
 
     const filteredSolutions = activeFilter === 'all'
         ? SOLUTIONS
@@ -114,6 +115,8 @@ export default function Ecossistema() {
         { key: 'juridico', icon: 'fa-balance-scale', label: 'Quero Proteger o Negócio' },
         { key: 'rh', icon: 'fa-users', label: 'Quero Estruturar o RH' },
     ]
+
+    const activeFilterMeta = filters.find(f => f.key === activeFilter) || filters[0]
 
     return (
         <>
@@ -153,12 +156,31 @@ export default function Ecossistema() {
             {/* STICKY FILTERS */}
             <div className="filter-section">
                 <div className="container">
-                    <div className="solution-filters">
+                    <button
+                        type="button"
+                        className="filters-toggle"
+                        aria-expanded={filtersOpen}
+                        aria-controls="solution-filters-list"
+                        onClick={() => setFiltersOpen(o => !o)}
+                    >
+                        <span className="filters-toggle-label">
+                            <i className={`fas ${activeFilterMeta.icon}`}></i>
+                            {activeFilterMeta.label}
+                        </span>
+                        <i className={`fas fa-chevron-${filtersOpen ? 'up' : 'down'} filters-toggle-chevron`}></i>
+                    </button>
+                    <div
+                        id="solution-filters-list"
+                        className={`solution-filters${filtersOpen ? ' is-open' : ''}`}
+                    >
                         {filters.map(f => (
                             <button
                                 key={f.key}
                                 className={`filter-btn${activeFilter === f.key ? ' active' : ''}`}
-                                onClick={() => setActiveFilter(f.key)}
+                                onClick={() => {
+                                    setActiveFilter(f.key)
+                                    setFiltersOpen(false)
+                                }}
                             >
                                 <i className={`fas ${f.icon}`}></i> {f.label}
                             </button>

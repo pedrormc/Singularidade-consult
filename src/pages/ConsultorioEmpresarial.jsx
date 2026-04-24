@@ -177,20 +177,20 @@ export default function ConsultorioEmpresarial() {
                         ))}
                     </div>
 
-                    <div style={{ marginTop: '4rem', padding: '2.5rem', background: 'var(--cinza-escuro)', borderRadius: 'var(--border-radius-lg)', border: '1px solid rgba(247,238,235,0.08)' }} data-reveal data-reveal-delay="2">
-                        <h3 style={{ marginBottom: '1rem' }}>O ponto central desse <span style={{ color: 'var(--cobre)' }}>exercício</span></h3>
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', marginBottom: '1.5rem' }}>
-                            <div style={{ background: 'var(--cobre)', borderRadius: 'var(--border-radius-lg)', padding: '1.5rem' }}>
-                                <p style={{ color: 'var(--off-white)', margin: 0, fontSize: '0.95rem' }}>A maioria dos empresários empreende sozinho por muito tempo</p>
+                    <div className="ce-ponto-central" data-reveal data-reveal-delay="2">
+                        <h3 className="ce-ponto-central-title">O ponto central desse <span style={{ color: 'var(--cobre)' }}>exercício</span></h3>
+                        <div className="ce-ponto-central-cards">
+                            <div className="ce-ponto-card">
+                                <p>A maioria dos empresários empreende sozinho por muito tempo</p>
                             </div>
-                            <div style={{ background: 'var(--cobre)', borderRadius: 'var(--border-radius-lg)', padding: '1.5rem' }}>
-                                <p style={{ color: 'var(--off-white)', margin: 0, fontSize: '0.95rem' }}>Decide sem parâmetro</p>
+                            <div className="ce-ponto-card">
+                                <p>Decide sem parâmetro</p>
                             </div>
-                            <div style={{ background: 'var(--cobre)', borderRadius: 'var(--border-radius-lg)', padding: '1.5rem' }}>
-                                <p style={{ color: 'var(--off-white)', margin: 0, fontSize: '0.95rem' }}>Aprende com os erros das escolhas ruins</p>
+                            <div className="ce-ponto-card">
+                                <p>Aprende com os erros das escolhas ruins</p>
                             </div>
                         </div>
-                        <p style={{ fontSize: '1rem' }}>
+                        <p className="ce-ponto-central-footer">
                             Isso não é incompetência — é falta de apoio estruturado. É sinal de uma trajetória longa em um ambiente difícil e hostil.
                         </p>
                     </div>

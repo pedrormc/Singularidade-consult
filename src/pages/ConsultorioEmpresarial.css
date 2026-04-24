@@ -310,6 +310,44 @@
     padding-top: 8px;
 }
 
+/* Ponto Central — bloco de cards laranjas que estava quebrado no mobile */
+.ce-ponto-central {
+    margin-top: 4rem;
+    padding: 2.5rem;
+    background: var(--cinza-escuro);
+    border-radius: var(--border-radius-lg);
+    border: 1px solid rgba(247, 238, 235, 0.08);
+}
+
+.ce-ponto-central-title {
+    margin-bottom: 1rem;
+}
+
+.ce-ponto-central-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.ce-ponto-card {
+    background: var(--cobre);
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+}
+
+.ce-ponto-card p {
+    color: var(--off-white);
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.ce-ponto-central-footer {
+    font-size: 1rem;
+    margin: 0;
+}
+
 /* Jornada Timeline */
 .ce-jornada-section {
     background: var(--preto-puro);
@@ -873,6 +911,14 @@
     .ce-boletos-grid,
     .ce-porque-grid,
     .ce-resultado-list {
+        grid-template-columns: 1fr;
+    }
+
+    .ce-ponto-central {
+        padding: 1.5rem;
+    }
+
+    .ce-ponto-central-cards {
         grid-template-columns: 1fr;
     }
 
