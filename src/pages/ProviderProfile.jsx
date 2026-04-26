@@ -28,7 +28,7 @@ export default function ProviderProfile() {
                 <section className="mp-profile section-pad" style={{ paddingTop: '160px' }}>
                     <div className="container">
                         <div className="mp-empty">
-                            <span className="mp-empty-icon">❌</span>
+                            <i className="fas fa-circle-exclamation mp-empty-icon" aria-hidden="true"></i>
                             <h3>Fornecedor não encontrado</h3>
                             <p>O fornecedor que você procura não existe ou foi removido.</p>
                             <Link to="/marketplace" className="btn btn-primary" style={{ marginTop: '1.5rem' }}>
@@ -58,7 +58,9 @@ export default function ProviderProfile() {
                         ← Voltar ao Marketplace
                     </Link>
                     <div className="mp-profile-header">
-                        <div className="mp-profile-avatar">{provider.avatar}</div>
+                        <div className="mp-profile-avatar">
+                            <i className={`fas ${provider.avatar}`} aria-hidden="true"></i>
+                        </div>
                         <div className="mp-profile-info">
                             <h1>{provider.name}</h1>
                             <span className="mp-profile-specialty">{provider.specialty}</span>
@@ -85,7 +87,7 @@ export default function ProviderProfile() {
                                 <ul className="mp-services-list">
                                     {provider.services.map((service, i) => (
                                         <li key={i}>
-                                            <span className="mp-service-check">✓</span>
+                                            <i className="fas fa-check mp-service-check" aria-hidden="true"></i>
                                             {service}
                                         </li>
                                     ))}
@@ -99,7 +101,7 @@ export default function ProviderProfile() {
                                         const cat = PAIN_CATEGORIES.find((c) => c.id === painId)
                                         return cat ? (
                                             <span key={painId} className="mp-card-tag">
-                                                {cat.icon} {cat.label}
+                                                <i className={`fas ${cat.icon}`} aria-hidden="true"></i> {cat.label}
                                             </span>
                                         ) : null
                                     })}
@@ -123,9 +125,9 @@ export default function ProviderProfile() {
                                     Solicitar análise da Singular
                                 </button>
                                 <div className="mp-profile-trust">
-                                    <span>🛡️ Fornecedor validado pela Singular</span>
-                                    <span>⚡ Resposta em até 24h</span>
-                                    <span>🎯 Matchmaking personalizado</span>
+                                    <span><i className="fas fa-shield-halved" aria-hidden="true"></i> Fornecedor validado pela Singular</span>
+                                    <span><i className="fas fa-bolt" aria-hidden="true"></i> Resposta em até 24h</span>
+                                    <span><i className="fas fa-bullseye" aria-hidden="true"></i> Matchmaking personalizado</span>
                                 </div>
                             </div>
                         </div>

@@ -89,7 +89,7 @@ export default function Navbar() {
                 <Link to="/ecossistema" onClick={closeMenu}>Ecossistema</Link>
                 <Link to="/consultorio-empresarial" onClick={closeMenu}>Consultório Empresarial</Link>
                 <Link to="/marketplace" onClick={closeMenu}>Marketplace</Link>
-                <Link to="/#triagem" className="btn btn-primary" style={{ marginTop: '1rem', justifyContent: 'center' }} onClick={(e) => handleAnchorClick(e, 'triagem')}>
+                <Link to="/#triagem" className="btn btn-primary" onClick={(e) => handleAnchorClick(e, 'triagem')}>
                     <i className="fas fa-calendar-check"></i> Agendar Triagem Gratuita
                 </Link>
             </div>

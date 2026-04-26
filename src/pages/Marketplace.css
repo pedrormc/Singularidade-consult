@@ -154,7 +154,14 @@
 }
 
 .mp-filter-icon {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    color: var(--cobre);
+    transition: var(--transition);
+}
+
+.mp-filter-btn.active .mp-filter-icon,
+.mp-filter-btn:hover .mp-filter-icon {
+    color: var(--off-white);
 }
 
 /* ---- Results info ---- */
@@ -226,11 +233,13 @@
     width: 52px;
     height: 52px;
     background: rgba(230, 78, 16, 0.12);
+    border: 1px solid rgba(230, 78, 16, 0.25);
     border-radius: var(--border-radius-lg);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    color: var(--cobre);
     flex-shrink: 0;
 }
 
@@ -263,14 +272,21 @@
 }
 
 .mp-card-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.06em;
-    padding: 4px 12px;
+    padding: 5px 12px;
     border-radius: 100px;
     background: rgba(230, 78, 16, 0.1);
     color: var(--cobre);
     border: 1px solid rgba(230, 78, 16, 0.2);
+}
+
+.mp-card-tag i {
+    font-size: 0.7rem;
 }
 
 .mp-card-footer {
@@ -314,9 +330,11 @@
 }
 
 .mp-empty-icon {
-    font-size: 3rem;
+    font-size: 2.5rem;
+    color: var(--cobre);
     display: block;
     margin-bottom: 1.5rem;
+    opacity: 0.6;
 }
 
 .mp-empty h3 {
@@ -416,7 +434,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+    color: var(--cobre);
     flex-shrink: 0;
 }
 
@@ -521,8 +540,18 @@
 }
 
 .mp-profile-trust span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     font-size: 0.85rem;
-    color: rgba(247, 238, 235, 0.6);
+    color: rgba(247, 238, 235, 0.7);
+}
+
+.mp-profile-trust span i {
+    color: var(--cobre);
+    font-size: 0.95rem;
+    width: 20px;
+    text-align: center;
 }
 
 /* ---- Modal ---- */

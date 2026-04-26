@@ -128,7 +128,7 @@ export default function Marketplace() {
                                 className={`mp-filter-btn ${activeFilter === cat.id ? 'active' : ''}`}
                                 onClick={() => handleFilterClick(cat.id)}
                             >
-                                <span className="mp-filter-icon">{cat.icon}</span>
+                                <i className={`fas ${cat.icon} mp-filter-icon`} aria-hidden="true"></i>
                                 {cat.label}
                             </button>
                         ))}
@@ -157,7 +157,9 @@ export default function Marketplace() {
                                 }}
                             >
                                 <div className="mp-card-header">
-                                    <div className="mp-card-avatar">{provider.avatar}</div>
+                                    <div className="mp-card-avatar">
+                                        <i className={`fas ${provider.avatar}`} aria-hidden="true"></i>
+                                    </div>
                                     <div className="mp-card-meta">
                                         <h3>{provider.name}</h3>
                                         <span className="mp-card-specialty">{provider.specialty}</span>
@@ -171,7 +173,7 @@ export default function Marketplace() {
                                         const cat = PAIN_CATEGORIES.find((c) => c.id === painId)
                                         return cat ? (
                                             <span key={painId} className="mp-card-tag">
-                                                {cat.icon} {cat.label}
+                                                <i className={`fas ${cat.icon}`} aria-hidden="true"></i> {cat.label}
                                             </span>
                                         ) : null
                                     })}
@@ -190,7 +192,7 @@ export default function Marketplace() {
 
                     {filteredProviders.length === 0 && (
                         <div className="mp-empty">
-                            <span className="mp-empty-icon">🔍</span>
+                            <i className="fas fa-magnifying-glass mp-empty-icon" aria-hidden="true"></i>
                             <h3>Nenhum fornecedor encontrado</h3>
                             <p>Tente ajustar seus filtros ou termos de busca.</p>
                         </div>

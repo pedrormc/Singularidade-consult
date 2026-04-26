@@ -4,14 +4,14 @@
 // =============================================
 
 export const PAIN_CATEGORIES = [
-    { id: 'gestao', label: 'Gestão', icon: '📊' },
-    { id: 'financeiro', label: 'Financeiro', icon: '💰' },
-    { id: 'marketing', label: 'Marketing', icon: '📢' },
-    { id: 'vendas', label: 'Vendas', icon: '🎯' },
-    { id: 'operacoes', label: 'Operações', icon: '⚙️' },
-    { id: 'juridico', label: 'Jurídico', icon: '⚖️' },
-    { id: 'tecnologia', label: 'Tecnologia', icon: '💻' },
-    { id: 'pessoas', label: 'Pessoas', icon: '👥' },
+    { id: 'gestao', label: 'Gestão', icon: 'fa-briefcase' },
+    { id: 'financeiro', label: 'Financeiro', icon: 'fa-coins' },
+    { id: 'marketing', label: 'Marketing', icon: 'fa-bullhorn' },
+    { id: 'vendas', label: 'Vendas', icon: 'fa-bullseye' },
+    { id: 'operacoes', label: 'Operações', icon: 'fa-gears' },
+    { id: 'juridico', label: 'Jurídico', icon: 'fa-scale-balanced' },
+    { id: 'tecnologia', label: 'Tecnologia', icon: 'fa-laptop-code' },
+    { id: 'pessoas', label: 'Pessoas', icon: 'fa-users' },
 ]
 
 export const PROVIDERS = [
@@ -32,7 +32,7 @@ export const PROVIDERS = [
         ],
         rating: 4.9,
         projects: 127,
-        avatar: '🏢',
+        avatar: 'fa-building',
     },
     {
         id: 'prov_002',
@@ -51,7 +51,7 @@ export const PROVIDERS = [
         ],
         rating: 4.8,
         projects: 89,
-        avatar: '💼',
+        avatar: 'fa-wallet',
     },
     {
         id: 'prov_003',
@@ -70,7 +70,7 @@ export const PROVIDERS = [
         ],
         rating: 4.7,
         projects: 203,
-        avatar: '🚀',
+        avatar: 'fa-rocket',
     },
     {
         id: 'prov_004',
@@ -89,7 +89,7 @@ export const PROVIDERS = [
         ],
         rating: 4.9,
         projects: 156,
-        avatar: '📈',
+        avatar: 'fa-chart-line',
     },
     {
         id: 'prov_005',
@@ -108,7 +108,7 @@ export const PROVIDERS = [
         ],
         rating: 4.6,
         projects: 94,
-        avatar: '⚡',
+        avatar: 'fa-bolt',
     },
     {
         id: 'prov_006',
@@ -127,7 +127,7 @@ export const PROVIDERS = [
         ],
         rating: 4.8,
         projects: 78,
-        avatar: '⚖️',
+        avatar: 'fa-gavel',
     },
 ]
 

@@ -30,7 +30,7 @@ export default function Home() {
         setTriagemLoading(true)
         const form = e.target
         setTimeout(() => {
-            showToast('Triagem agendada! Entraremos em contato em até 24h. ✅')
+            showToast('Triagem agendada! Entraremos em contato em até 24h.')
             form.reset()
             setTriagemLoading(false)
         }, 800)
@@ -41,7 +41,7 @@ export default function Home() {
         setVentureLoading(true)
         const form = e.target
         setTimeout(() => {
-            showToast('Candidatura recebida! Avaliaremos em até 3 dias úteis. 🚀')
+            showToast('Candidatura recebida! Avaliaremos em até 3 dias úteis.')
             form.reset()
             setVentureLoading(false)
         }, 800)
@@ -233,14 +233,14 @@ export default function Home() {
                     <h4 className="section-subtitle" data-reveal>Módulos de Especialistas</h4>
                     <div className="modules-grid" data-reveal data-reveal-delay="1">
                         {[
-                            { icon: '👥', label: 'RH' },
-                            { icon: '💰', label: 'Financeiro' },
-                            { icon: '📣', label: 'Marketing' },
-                            { icon: '⚖️', label: 'Jurídico' },
-                            { icon: '📈', label: 'Vendas' },
+                            { icon: 'fa-users', label: 'RH' },
+                            { icon: 'fa-coins', label: 'Financeiro' },
+                            { icon: 'fa-bullhorn', label: 'Marketing' },
+                            { icon: 'fa-scale-balanced', label: 'Jurídico' },
+                            { icon: 'fa-bullseye', label: 'Vendas' },
                         ].map((mod, i) => (
                             <div className="module-item" key={i}>
-                                <span className="module-icon">{mod.icon}</span>
+                                <span className="module-icon"><i className={`fas ${mod.icon}`} aria-hidden="true"></i></span>
                                 <span className="module-label">{mod.label}</span>
                             </div>
                         ))}
@@ -356,12 +356,12 @@ export default function Home() {
 
                     <div className="areas-grid">
                         {[
-                            { icon: '🐾', title: 'Pet Shop Online', desc: 'Parceria com veterinários locais e repacotamento de serviços.', items: ['Ticket médio subiu para R$1.300', 'Parceria com microinfluenciadores', 'Reativação de clientes inativos', 'Campanha de indicação estruturada'] },
-                            { icon: '💆', title: 'Clínica de Estética', desc: 'Reativação de ex-clientes VIP com script de ligação do Playbook.', items: ['+R$2.000 em vendas em 3 dias', 'Open house com indicação de amigos', 'Ticket médio subiu para R$1.500', 'Base de clientes segmentada'] },
-                            { icon: '📊', title: 'Empresa de Serviços', desc: 'Raio-X financeiro revelou serviço subprecificado em 20%.', items: ['Ajuste de preço sem perda de vendas', '+R$5k no caixa mensal', 'Renegociação com fornecedores -10%', 'Economia de R$3k/mês em insumos'] },
+                            { icon: 'fa-paw', title: 'Pet Shop Online', desc: 'Parceria com veterinários locais e repacotamento de serviços.', items: ['Ticket médio subiu para R$1.300', 'Parceria com microinfluenciadores', 'Reativação de clientes inativos', 'Campanha de indicação estruturada'] },
+                            { icon: 'fa-spa', title: 'Clínica de Estética', desc: 'Reativação de ex-clientes VIP com script de ligação do Playbook.', items: ['+R$2.000 em vendas em 3 dias', 'Open house com indicação de amigos', 'Ticket médio subiu para R$1.500', 'Base de clientes segmentada'] },
+                            { icon: 'fa-handshake', title: 'Empresa de Serviços', desc: 'Raio-X financeiro revelou serviço subprecificado em 20%.', items: ['Ajuste de preço sem perda de vendas', '+R$5k no caixa mensal', 'Renegociação com fornecedores -10%', 'Economia de R$3k/mês em insumos'] },
                         ].map((area, i) => (
                             <div className="area-card" data-reveal data-reveal-delay={`${i + 1}`} key={i}>
-                                <span className="area-icon">{area.icon}</span>
+                                <span className="area-icon"><i className={`fas ${area.icon}`} aria-hidden="true"></i></span>
                                 <h3>{area.title}</h3>
                                 <p>{area.desc}</p>
                                 <ul>
