@@ -385,83 +385,93 @@ export default function Home() {
             <section className="planos-section" id="planos">
                 <div className="container">
                     <div className="section-header" data-reveal>
-                        <div className="sg-tag">Investimento</div>
-                        <h2>Escolha o <span>Plano Certo</span> Para o Seu Momento</h2>
-                        <p>Pague à vista ou parcele em 12x no cartão. Todos os planos incluem acesso à rede de especialistas e ao Hub ARCO.</p>
+                        <div className="sg-tag">Modalidades</div>
+                        <h2>As 5 Modalidades de <span>Acompanhamento</span> da Singular</h2>
+                        <p className="planos-subtitle"><strong>Escolha o nível de profundidade.</strong> Cada modalidade foi desenhada para atender empresários em diferentes momentos de maturidade e prontidão para transformação. A escolha correta respeita o ritmo real de cada negócio.</p>
                     </div>
 
                     <div className="planos-grid">
                         {[
                             {
                                 tag: null,
-                                name: 'Plano Exame',
-                                parcela: 'R$ 159,27',
-                                parcelaSub: '12x no cartão',
-                                avista: 'ou R$ 2.000,00 à vista',
-                                conteudo: '3 consultas exame',
+                                name: 'Quinzenal',
+                                contrato: 'Contrato semestral',
                                 bullets: [
-                                    'Exame do empresário',
-                                    'Exame da empresa (raio-X financeiro)',
-                                    'Plano de direção inicial',
+                                    'Encontros quinzenais estruturados',
+                                    '15% de desconto em todos os serviços complementares (MKT, GST, FIN, ADV, VND)',
+                                    'Acesso ao calendário exclusivo de eventos (apenas convidados)',
                                 ],
-                                cta: 'Começar pelo Exame',
                                 highlight: false,
-                            },
-                            {
-                                tag: 'MAIS POPULAR',
-                                name: 'Plano Completo',
-                                parcela: 'R$ 399,27',
-                                parcelaSub: '12x no cartão',
-                                avista: 'ou R$ 5.000,00 à vista',
-                                conteudo: '3 consultas exame + 4 semanais',
-                                bullets: [
-                                    'Tudo do Plano Exame',
-                                    '4 sessões executivas semanais',
-                                    'Suporte assíncrono via WhatsApp',
-                                    'Acompanhamento de Quick Wins',
-                                ],
-                                cta: 'Quero o Plano Completo',
-                                highlight: true,
                             },
                             {
                                 tag: null,
-                                name: 'Plano Avançado',
-                                parcela: 'R$ 699,27',
-                                parcelaSub: '12x no cartão',
-                                avista: 'ou R$ 8.750,00 à vista',
-                                conteudo: '3 consultas exame + 8 semanais',
+                                name: 'Semanal Nível 1',
+                                contrato: 'Contrato semestral',
                                 bullets: [
-                                    'Tudo do Plano Completo',
-                                    '8 sessões executivas semanais',
-                                    'Plano de 90 dias estruturado',
-                                    'Painel de indicadores e metas SMART',
+                                    'Todos os benefícios da modalidade anterior',
+                                    'Encontros semanais para aceleração do desenvolvimento',
+                                    'Acesso completo ao FridAI (inteligência artificial proprietária)',
                                 ],
-                                cta: 'Quero ir Mais Fundo',
                                 highlight: false,
                             },
+                            {
+                                tag: null,
+                                name: 'Semanal Nível 2',
+                                contrato: 'Contrato semestral',
+                                bullets: [
+                                    'Todos os benefícios anteriores',
+                                    'Sessão semanal feita na sua empresa',
+                                    'Specialist In Company: 1 dia por mês de imersão presencial com especialista dedicado',
+                                    'Suporte 24/7 de todos nossos agentes de IA',
+                                ],
+                                highlight: false,
+                            },
+                            {
+                                tag: null,
+                                name: 'Full Access',
+                                contrato: 'Grupo de 6 empresas simultaneamente',
+                                bullets: [
+                                    'Cessão de Gerência: profissional experiente atuando dentro da empresa',
+                                    'Comunidade Nexialista: rede fechada de empresários de alto nível',
+                                    'Avaliação direta dos dealers para preparação e captação de recursos',
+                                ],
+                                highlight: false,
+                            },
+                            {
+                                tag: 'FLAGSHIP',
+                                name: 'SINGULARIDADE',
+                                contrato: 'Dedicação exclusiva para 1 empresa',
+                                bullets: [
+                                    'Cessão por 6 meses em regime intensivo de um Empresário',
+                                    'Acesso total à experiente Comunidade Nexialista',
+                                    'Empresário tem acesso à infraestrutura da incubadora do grupo',
+                                    'Avaliação dos investidores para escalar a empresa',
+                                ],
+                                highlight: true,
+                            },
                         ].map((plan, i) => (
-                            <div className={`plano-card${plan.highlight ? ' is-highlighted' : ''}`} data-reveal data-reveal-delay={`${i + 1}`} key={plan.name}>
+                            <div className={`plano-card${plan.highlight ? ' is-highlighted' : ''}`} data-reveal data-reveal-delay={`${(i % 3) + 1}`} key={plan.name}>
                                 {plan.tag && <span className="plano-tag">{plan.tag}</span>}
                                 <h3 className="plano-name">{plan.name}</h3>
-                                <span className="plano-parcela-label">PARCELA DE</span>
-                                <div className="plano-price">{plan.parcela}</div>
-                                <span className="plano-parcela-sub">{plan.parcelaSub}</span>
-                                <span className="plano-avista">{plan.avista}</span>
-                                <div className="plano-conteudo">{plan.conteudo}</div>
+                                <div className="plano-investimento">
+                                    <span className="plano-investimento-label">Investimento</span>
+                                    <span className="plano-investimento-value">Sob consulta</span>
+                                </div>
+                                <div className="plano-contrato">{plan.contrato}</div>
                                 <ul className="plano-bullets">
                                     {plan.bullets.map((b, j) => (
                                         <li key={j}><i className="fas fa-check"></i> {b}</li>
                                     ))}
                                 </ul>
                                 <a href="#triagem" className={`btn ${plan.highlight ? 'btn-primary' : 'btn-outline'} btn-full`}>
-                                    {plan.cta}
+                                    Falar com Especialista
                                 </a>
                             </div>
                         ))}
                     </div>
 
                     <p className="planos-disclaimer" data-reveal>
-                        + taxa de êxito sobre resultados financeiros gerados, conforme contrato. <strong>Garantia:</strong> 60 dias para clareza do caixa + plano de metas — ou estendemos por mais 1 mês sem cobrar.
+                        <strong>Não vendemos pacote pronto.</strong> Após a triagem gratuita, nosso especialista monta a oferta sob medida pro seu momento. Garantia: 60 dias para clareza do caixa + plano de metas — ou estendemos por mais 1 mês sem cobrar.
                     </p>
                 </div>
             </section>
